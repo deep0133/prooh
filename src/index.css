@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.font-bricolage{
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-optical-sizing: auto;
+}
