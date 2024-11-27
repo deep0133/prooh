@@ -1,9 +1,13 @@
-import LandingPage from "./components/LandingPage";
+import ChooseUs from "./components/ChooseUs";
+import Header from "./components/Header";
+import Hero from "./components/Hero";
 
 export default function App() {
   return (
     <>
-    <LandingPage/>
+      <Header />
+      <Hero />
+      <ChooseUs />
     </>
-  )
+  );
 }

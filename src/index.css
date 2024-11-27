@@ -2,7 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-.font-bricolage{
-  font-family: "Bricolage Grotesque", sans-serif;
-  font-optical-sizing: auto;
+@layer utilities {
+  .font-bricolage {
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-optical-sizing: auto;
+  }
+  .responsiveWidth {
+    @apply mx-auto w-[94%] sm:w-[88%] md:w-[84%] lg:w-[80%] max-w-[90rem];
+  }
 }

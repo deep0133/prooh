@@ -3,19 +3,10 @@ import { motion } from "framer-motion";
 
 export default function LandingPage() {
   return (
-    <div className='min-h-screen bg-black text-white'>
+    <div className='min-h-screen sticky top-20 inset-0 bg-black text-white'>
       {/* Header */}
-      <header className='px-6 h-20 flex items-center'>
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
-        >
-          <h1 className='text-xl font-bold'>PROOH.AI</h1>
-        </motion.div>
-      </header>
 
-      <div className='flex justify-center items-center flex-col h-full'>
+      <div className='flex responsiveWidth justify-center items-center flex-col h-full'>
         {/* Notification Banner */}
         <motion.div
           initial={{ y: -50, opacity: 0 }}
