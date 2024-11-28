@@ -8,12 +8,11 @@ export default function ChooseUs() {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        // If the component is fully in view (at the top of the viewport)
-        setShowText(entry.isIntersecting && entry.boundingClientRect.top === 0);
+        setShowText(entry.isIntersecting); // Show the header when in view
       },
       {
-        root: null, // Use the viewport as the root
-        threshold: 1.0, // Trigger only when fully in view
+        root: null, // Observe relative to the viewport
+        threshold: 0.2, // Trigger when 20% of the component is visible
       }
     );
 
@@ -31,20 +30,19 @@ export default function ChooseUs() {
   return (
     <div
       ref={componentRef}
-      className='min-h-svh font-bricolage relative bg-white'
-      style={{
-        zIndex: 9999,
-      }}
+      className='font-bricolage relative bg-white'
+      style={{ zIndex: 9999 }}
     >
       {/* Fixed "PROOH.AI" text */}
       {showText && (
-        <div className='fixed top-0 left-0 w-full bg-white z-50'>
-          <p className='text-left font-medium responsiveWidth  text-lg py-2'>
+        <div className='fixed top-0 left-0 w-full bg-white z-50 shadow-md'>
+          <p className='text-left font-medium responsiveWidth text-lg py-2'>
             PROOH.AI
           </p>
         </div>
       )}
 
+      {/* Main Content */}
       <div className='pt-20 responsiveWidth'>
         <div className='flex flex-col lg:flex-row justify-between items-start gap-12'>
           {/* Left Content */}
@@ -76,7 +74,6 @@ export default function ChooseUs() {
               className='flex items-center gap-2 px-6 py-3 bg-white border-2 border-black rounded-full hover:bg-black hover:text-white transition-colors'
             >
               <span>Share Your Thoughts</span>
-              {/* <FiShare2 className='w-4 h-4' /> */}
             </motion.button>
           </div>
 

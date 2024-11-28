@@ -11,3 +11,15 @@
     @apply mx-auto w-[94%] sm:w-[88%] md:w-[84%] lg:w-[80%] max-w-[90rem];
   }
 }
+
+.image-container {
+  overflow: hidden;
+  transition: all 0.5s ease-in-out;
+}
+
+.image-container:hover {
+  box-shadow: 6px 8px 0px black;
+  border: 1px solid rgb(128, 125, 125);
+  border-radius: 30px;
+  scale: 1.05 1.12;
+}

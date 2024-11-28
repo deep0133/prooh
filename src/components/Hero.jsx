@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 export default function LandingPage() {
   return (
-    <div className='min-h-screen sticky top-20 inset-0 bg-black text-white'>
+    <div className='min-h-screen sticky top-20 z-0 inset-0 bg-black text-white'>
       {/* Header */}
 
       <div className='flex responsiveWidth justify-center items-center flex-col h-full'>
