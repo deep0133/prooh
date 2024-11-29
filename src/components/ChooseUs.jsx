@@ -1,49 +1,17 @@
-import { useEffect, useState, useRef } from "react";
+import { useRef } from "react";
 import { motion } from "framer-motion";
 
 export default function ChooseUs() {
-  const [showText, setShowText] = useState(false);
   const componentRef = useRef(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setShowText(entry.isIntersecting); // Show the header when in view
-      },
-      {
-        root: null, // Observe relative to the viewport
-        threshold: 0.2, // Trigger when 20% of the component is visible
-      }
-    );
-
-    if (componentRef.current) {
-      observer.observe(componentRef.current);
-    }
-
-    return () => {
-      if (componentRef.current) {
-        observer.unobserve(componentRef.current);
-      }
-    };
-  }, []);
 
   return (
     <div
       ref={componentRef}
-      className='font-bricolage relative bg-white'
-      style={{ zIndex: 9999 }}
+      className='font-bricolage border pt-20 min-h-svh relative bg-white'
+      style={{ zIndex: 9, minHeight: "calc(100vh - 80px)" }}
     >
-      {/* Fixed "PROOH.AI" text */}
-      {showText && (
-        <div className='fixed top-0 left-0 w-full bg-white z-50 shadow-md'>
-          <p className='text-left font-medium responsiveWidth text-lg py-2'>
-            PROOH.AI
-          </p>
-        </div>
-      )}
-
       {/* Main Content */}
-      <div className='pt-20 responsiveWidth'>
+      <div className=' responsiveWidth'>
         <div className='flex flex-col lg:flex-row justify-between items-start gap-12'>
           {/* Left Content */}
           <div className='flex-1 space-y-6'>

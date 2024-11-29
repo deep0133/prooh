@@ -7,7 +7,9 @@ export default function App() {
   return (
     <>
       <Header />
-      {/* <Hero /> */}
+      <div className='min-h-screen'>
+        <Hero />
+      </div>
       <ChooseUs />
       <Testimonial />
     </>

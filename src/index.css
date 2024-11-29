@@ -14,12 +14,19 @@
 
 .image-container {
   overflow: hidden;
-  transition: all 0.5s ease-in-out;
+  transition: all 0.4s ease-in-out;
+  border: 0.2px solid transparent;
 }
 
 .image-container:hover {
+  border: 0.2px solid rgb(128, 125, 125);
   box-shadow: 6px 8px 0px black;
-  border: 1px solid rgb(128, 125, 125);
   border-radius: 30px;
-  scale: 1.05 1.12;
+  scale: 1.04 1.08;
+}
+
+.testimonial-shadow {
+  border: 0.2px solid rgb(128, 125, 125);
+  box-shadow: 6px 0px 0px black;
+  border-radius: 30px;
 }
