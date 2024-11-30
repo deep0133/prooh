@@ -2,31 +2,48 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer utilities {
-  .font-bricolage {
-    font-family: "Bricolage Grotesque", sans-serif;
-    font-optical-sizing: auto;
-  }
+@layer components {
   .responsiveWidth {
     @apply mx-auto w-[94%] sm:w-[88%] md:w-[84%] lg:w-[80%] max-w-[90rem];
   }
 }
 
-.image-container {
+@layer utilities {
+  .font-bricolage {
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-optical-sizing: auto;
+  }
+  .font-inter {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+  }
+}
+
+/* .image-container {
   overflow: hidden;
   transition: all 0.4s ease-in-out;
   border: 0.2px solid transparent;
-}
+} */
 
-.image-container:hover {
+.image-container {
+  transition: all 0.4s ease-in-out;
   border: 0.2px solid rgb(128, 125, 125);
   box-shadow: 6px 8px 0px black;
   border-radius: 30px;
-  scale: 1.04 1.08;
+  /* scale: 1.04 1.08; */
 }
 
 .testimonial-shadow {
   border: 0.2px solid rgb(128, 125, 125);
   box-shadow: 6px 0px 0px black;
+  border-radius: 46px;
+}
+
+.custome-scale {
+  transform: scale(1.15);
+  border: 0.2px solid rgb(128, 125, 125);
+  box-shadow: 6px 8px 0px black;
   border-radius: 30px;
+  overflow: hidden;
 }

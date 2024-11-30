@@ -1,38 +1,60 @@
-import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { useRef } from "react";
+import { gsap } from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Header() {
-  const [isScrolled, setIsScrolled] = useState(false);
+  const headerRef = useRef(null);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY >= window.innerHeight) {
-        setIsScrolled(true); // If scrolled past 100vh
-      } else {
-        setIsScrolled(false); // Before 100vh
-      }
-    };
+  useGSAP(() => {
+    gsap.to(headerRef.current, {
+      opacity: 1,
+      duration: 0.7,
+      backgroundColor: "white",
+      color: "black",
+      scrollTrigger: {
+        trigger: headerRef.current,
+        start: () => `${window.innerHeight - 80}px top`,
+        end: "bottom top",
+        duration: 0.5,
+        ease: "power1.out",
+        scrub: true,
+        toggleActions: "play none none reverse",
+      },
+    });
 
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll); // Cleanup on unmount
-    };
+    // gsap.fromTo(
+    //   iconsRef.current,
+    //   {
+    //     y: "0vh", // Start above the viewport
+    //     opacity: 0, // Start with zero opacity
+    //     x: () => Math.random() * 200 - 100, // Random horizontal starting position
+    //   },
+    //   {
+    //     y: () => `${window.innerHeight - 80}px`, // End position at the bottom of the screen
+    //     opacity: 1, // Fade in
+    //     stagger: 0.2, // Delay between each icon's animation for staggered effect
+    //     duration: 2, // Duration of the fall
+    //     ease: "bounce.out", // Bounce easing for a "ball" effect
+    //   }
+    // );
   }, []);
 
   return (
-    <header
-      className={`h-20 flex fixed top-0 w-full z-50 items-center transition-all duration-300 ${
-        isScrolled ? "bg-white text-black shadow-md" : "bg-black text-white"
-      }`}
-    >
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5 }}
-        className='responsiveWidth'
+    <div className='relative'>
+      <header
+        ref={headerRef}
+        className={`h-20 flex fixed top-0 bg-black text-white w-full z-50 items-center transition-all duration-300`}
+        style={{
+          transition: "background-color 0.5s ease, color 0.5s ease", // Smooth transition for background and text color
+        }}
       >
-        <h1 className='text-xl font-bold'>PROOH.AI</h1>
-      </motion.div>
-    </header>
+        <div className='responsiveWidth'>
+          <h1 className='text-xl font-bold'>PROOH.AI</h1>
+        </div>
+      </header>
+    </div>
   );
 }
