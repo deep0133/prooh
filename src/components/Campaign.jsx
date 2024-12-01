@@ -51,7 +51,6 @@ export default function Compaign() {
           end: "bottom 60%",
           scrub: true,
           once: true,
-          markers: true,
         },
       });
 
@@ -116,7 +115,7 @@ export default function Compaign() {
       style={{
         zIndex: 9,
       }}
-      className='min-h-screen font-bricolage relative bg-white flex items-center'
+      className='min-h-screen font-bricolage rounded-t-[58px] relative bg-white flex items-center'
     >
       <div className='responsiveWidth bg-white mx-auto py-12 flex justify-between items-center'>
         <div className='max-w-2xl'>

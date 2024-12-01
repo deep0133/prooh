@@ -1,7 +1,14 @@
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { gsap } from "gsap";
 import chat from "../assets/comment.png";
 import marker from "../assets/marker.png";
 import phone from "../assets/phonecall.png";
 import comments from "../assets/comments.png";
+import logo from "../assets/logo.png";
+import { useGSAP } from "@gsap/react";
+import { useRef } from "react";
+
+gsap.registerPlugin(ScrollTrigger);
 
 function FriendlyTeam() {
   const cardData = [
@@ -36,27 +43,54 @@ function FriendlyTeam() {
       isLight: true,
     },
   ];
+  useGSAP(() => {
+    const cards = containerRef.current.querySelectorAll(".card"); // Assuming each Card has a 'card' class
+
+    gsap.fromTo(
+      cards,
+      {
+        x: 500, // Start 100px to the right
+        opacity: 0, // Start with 0 opacity
+      },
+      {
+        x: 0, // End at original position
+        opacity: 1, // End fully visible
+        duration: 0.8, // Animation duration
+        ease: "bounce.out", // Bounce effect
+        stagger: 0.2, // Delay between each card
+        scrollTrigger: {
+          trigger: containerRef.current, // Animate on scroll into view
+          start: "top 40%", // When top of container is at 80% of viewport
+          end: "bottom 20%", // When bottom of container is at 20% of viewport
+          toggleActions: "play none none reverse", // Play animation on enter
+        },
+      }
+    );
+  }, []);
+
+  const containerRef = useRef(null);
 
   return (
     <>
       <div
+        ref={containerRef}
         style={{ zIndex: 9 }}
-        className='min-h-svh relative pt-20 bg-black flex flex-col justify-center gap-6'
+        className='min-h-svh relative border-4 border-yellow-500  pt-20 bg-[#181818] flex flex-col justify-center gap-6'
       >
         <div className='text-white responsiveWidth flex flex-col text-center gap-1 '>
-          <span className='font-bricolage'>
-            <span className=''>PROOH.AI</span>
-          </span>
+          <div className='text-center justify-center flex'>
+            <img src={logo} alt='' className='h-[26px]' />
+          </div>
           <div className='text-center font-bricolage leading-[51px] capitalize font-bold text-5xl'>
             <span className='text-white'>Contact our friendly</span>
             <span className='text-[#b2b2b2] '> team</span>
           </div>
-          <span className='text-center text-[#a4a4a4] text-xl font-normal font-inter'>
+          <span className='text-center text-[#a4a4a4] mt-2 text-xl font-normal font-inter'>
             Let us know how we can help.
           </span>
         </div>
 
-        <div className='grid responsiveWidth lg:grid-cols-4 gap-4 md:w-4/5 mx-auto sm:grid-cols-2 grid-cols-1 '>
+        <div className='grid responsiveWidth lg:grid-cols-4 gap-4 md:w-4/5 mx-auto sm:grid-cols-2 grid-cols-1 mt-5 '>
           {cardData.map((val, index) => {
             return (
               <>
@@ -86,7 +120,7 @@ function Card({ icon, title, desc, buttonText, index, email }) {
     <div
       className={`${
         index === 3 ? "bg-white text-black" : "bg-[#2A2A2A]"
-      } flex flex-col py-8 px-6 rounded-[23px]`}
+      } flex flex-col py-8 px-6 rounded-[23px] card`}
     >
       <div className='p-2'>
         <div className=' flex flex-col gap-3 md:px-2'>
@@ -107,24 +141,18 @@ function Card({ icon, title, desc, buttonText, index, email }) {
           >
             {desc}
             <br />
-            {email}
+            <span className='font-medium'> {email}</span>
           </span>
         </div>
 
-        <button
+        <a
+          href={`mailto:${email}`}
           className={`h-[42px] mt-7 w-full ${
             index === 3 ? "bg-black text-white" : "bg-[#2A2A2A] text-white"
           } py-3 rounded-[36px] border border-[#464646] text-[15px] text-nowrap font-bold font-inter capitalize justify-center items-center gap-2.5 inline-flex`}
         >
           {buttonText}
-        </button>
-        {/* <div
-          className={`text-center border rounded-full  mx-auto flex justify-center items-center text-[12px] py-2 mt-14 ${
-            index === 3 ? "bg-black text-white" : "bg-[#2A2A2A] text-white"
-          }`}
-        >
-          <span>{buttonText}</span>
-        </div> */}
+        </a>
       </div>
     </div>
   );

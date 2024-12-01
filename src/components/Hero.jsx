@@ -5,9 +5,16 @@ import { Headphones } from "lucide-react";
 import { useGSAP } from "@gsap/react";
 import FallingIcons from "./BallFalling";
 
-import doctor from "../assets/doctor.jpg";
-import owl from "../assets/owl.jpg";
-import oip from "../assets/OIP.jpg";
+import advertising from "../assets/fallingIcons/advertising.png";
+import contract from "../assets/fallingIcons/contract.png";
+import earth from "../assets/fallingIcons/earth.png";
+import gift from "../assets/fallingIcons/gift.png";
+import map from "../assets/fallingIcons/google-maps.png";
+import hotdeal from "../assets/fallingIcons/hot-deal.png";
+import like from "../assets/fallingIcons/like.png";
+import pdf from "../assets/fallingIcons/pdf.png";
+import target from "../assets/fallingIcons/target.png";
+import tickmark from "../assets/fallingIcons/tick-mark.png";
 
 gsap.registerPlugin(TextPlugin);
 
@@ -17,7 +24,6 @@ export default function LandingPage() {
   const paragraphRef = useRef(null);
   const buttonsRef = useRef(null);
   const logosRef = useRef(null);
-  const cursorRef = useRef(null);
 
   useGSAP(() => {
     // Notification Banner Animation
@@ -55,38 +61,12 @@ export default function LandingPage() {
       { y: 20, opacity: 0 },
       { y: 0, opacity: 1, delay: 1, duration: 0.5, ease: "power1.out" }
     );
-
-    // Cursor Movement
-    const handleMouseMove = (e) => {
-      const x = e.clientX;
-      const y = e.clientY;
-
-      gsap.to(cursorRef.current, {
-        x,
-        y,
-        duration: 0.1,
-        ease: "power1.out",
-      });
-    };
-
-    window.addEventListener("mousemove", handleMouseMove);
-
-    return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-    };
   }, []);
 
   return (
-    <div className='min-h-screen fixed top-20 z-0 inset-0 bg-black text-white'>
+    <div className=' fixed top-20 z-0 inset-0 bg-black text-white'>
       {/* Custom Cursor */}
       <FallingIcons icons={icons} />
-      {/* Icons falling from top */}
-      {/* <div
-        ref={cursorRef}
-        className='fixed top-0 left-0 w-8 h-8 bg-white rounded-full pointer-events-none mix-blend-difference'
-        style={{ transform: "translate(-50%, -50%)", zIndex: 9999 }}
-      ></div> */}
-
       {/* Header */}
       <div className='flex responsiveWidth justify-center items-center flex-col h-full'>
         {/* Notification Banner */}
@@ -105,14 +85,6 @@ export default function LandingPage() {
           >
             Welcome in Prooh <br /> AI Technology
           </h2>
-          {/* <span
-          ref={cursorRef}
-          className="text-white text-3xl inline-block ml-1"
-          style={{ marginLeft: "5px" }}
-        >
-          |
-        </span> */}
-
           <p
             ref={paragraphRef}
             className='mt-6 text-zinc-400 max-w-2xl mx-auto text-lg'
@@ -163,4 +135,105 @@ export default function LandingPage() {
   );
 }
 
-const icons = [owl, doctor, oip, owl, doctor, oip, owl, doctor, oip];
+const icons = [
+  advertising,
+  contract,
+  earth,
+  gift,
+  map,
+  hotdeal,
+  like,
+  pdf,
+  target,
+  tickmark,
+  advertising,
+  contract,
+  earth,
+  gift,
+  map,
+  hotdeal,
+  like,
+  pdf,
+  target,
+  tickmark,
+  advertising,
+  contract,
+  earth,
+  gift,
+  map,
+  hotdeal,
+  like,
+  pdf,
+  target,
+  tickmark,
+  advertising,
+  contract,
+  earth,
+  gift,
+  map,
+  hotdeal,
+  like,
+  pdf,
+  target,
+  tickmark,
+  advertising,
+  contract,
+  earth,
+  gift,
+  map,
+  hotdeal,
+  like,
+  pdf,
+  target,
+  tickmark,
+  advertising,
+  contract,
+  earth,
+  gift,
+  map,
+  hotdeal,
+  like,
+  pdf,
+  target,
+  tickmark,
+  advertising,
+  contract,
+  earth,
+  gift,
+  map,
+  hotdeal,
+  like,
+  pdf,
+  target,
+  tickmark,
+  advertising,
+  contract,
+  earth,
+  gift,
+  map,
+  hotdeal,
+  like,
+  pdf,
+  target,
+  tickmark,
+  advertising,
+  contract,
+  earth,
+  gift,
+  map,
+  hotdeal,
+  like,
+  pdf,
+  target,
+  tickmark,
+  advertising,
+  contract,
+  earth,
+  gift,
+  map,
+  hotdeal,
+  like,
+  pdf,
+  target,
+  tickmark,
+];

@@ -8,6 +8,10 @@ import { gsap } from "gsap";
 import quoteIcon from "../assets/quote.png";
 import testimonialArrow from "../assets/testimonialArrow.png";
 import imojiIcon from "../assets/emoji.png";
+import TestimonialImage1 from "../assets/testimonial1.png";
+import TestimonialImage2 from "../assets/testimonial2.png";
+import TestimonialImage3 from "../assets/testimonial3.png";
+import { useGSAP } from "@gsap/react";
 
 const testimonials = [
   {
@@ -16,7 +20,7 @@ const testimonials = [
     company: "goodfeed.ai",
     message:
       "Harness the power of data-driven campaigns to create meaningful connections with your audience, leaving a lasting impression.",
-    img: "https://cdn.pixabay.com/photo/2019/10/10/18/51/smartphone-4540273_1280.jpg",
+    img: TestimonialImage1,
   },
   {
     id: 2,
@@ -24,7 +28,7 @@ const testimonials = [
     company: "example.com",
     message:
       "Our platform ensures your data is secure and that campaigns deliver measurable results that resonate with your customers.",
-    img: "https://cdn.pixabay.com/photo/2019/10/10/18/51/smartphone-4540273_1280.jpg",
+    img: TestimonialImage2,
   },
   {
     id: 3,
@@ -40,7 +44,7 @@ const testimonials = [
     company: "innovate.ai",
     message:
       "From analytics to action, our campaigns are designed to maximize your brand’s potential and generate long-term value.",
-    img: "https://cdn.pixabay.com/photo/2019/10/10/18/51/smartphone-4540273_1280.jpg",
+    img: TestimonialImage3,
   },
   {
     id: 5,
@@ -48,7 +52,7 @@ const testimonials = [
     company: "smithtech.io",
     message:
       "Empowering brands with the insights they need to outperform the competition and achieve remarkable growth.",
-    img: "https://cdn.pixabay.com/photo/2019/10/10/18/51/smartphone-4540273_1280.jpg",
+    img: TestimonialImage1,
   },
   {
     id: 6,
@@ -56,7 +60,7 @@ const testimonials = [
     company: "innovate.ai",
     message:
       "From analytics to action, our campaigns are designed to maximize your brand’s potential and generate long-term value.",
-    img: "https://cdn.pixabay.com/photo/2019/10/10/18/51/smartphone-4540273_1280.jpg",
+    img: TestimonialImage2,
   },
 ];
 
@@ -64,6 +68,42 @@ const TestimonialSlider = () => {
   const [activeTestimonial, setActiveTestimonial] = useState(testimonials[0]);
 
   const [activeIndex, setActiveIndex] = useState(0);
+  const textRef = useRef(null);
+
+  useGSAP(() => {
+    const textElement = textRef.current;
+    const text = activeTestimonial.message;
+
+    // Clear existing content and split text into spans
+    // textElement.innerHTML = text
+    //   .split("")
+    //   .map(
+    //     (char) =>
+    //       `<span style="display: inline-block; opacity: 0">${char}</span>`
+    //   )
+    //   .join("");
+    textElement.innerHTML =
+      text
+        .split("")
+        .map((char) =>
+          char === " "
+            ? `<span style="display: inline-block; width: 0.3em; opacity: 0;">&nbsp;</span>` // Add space as a span
+            : `<span style="display: inline-block; opacity: 0;">${char}</span>`
+        )
+        .join("") +
+      `<span style="display: flex; width:100%; justify-content :center; margin-top:10px; opacity: 0;"> <br/> <img style="width:34px; height:34px;" src=${imojiIcon} alt='' /></span>`;
+
+    // Select all the spans
+    const characters = textElement.querySelectorAll("span");
+
+    gsap.to(characters, {
+      color: "#000000", // End color
+      opacity: 1, // Make it visible
+      duration: 0.5, // Animation duration per character
+      ease: "power2.out",
+      stagger: 0.03, // Delay between each character animation
+    });
+  }, [activeTestimonial]);
 
   const handleSlideChange = (swiper) => {
     setActiveTestimonial(testimonials[swiper.realIndex]);
@@ -76,13 +116,13 @@ const TestimonialSlider = () => {
     >
       <div className='responsiveWidth'>
         <center>
-          <div className='flex gap-5 justify-center items-center'>
-            <img src={imojiIcon} alt='' />
+          <div className='flex gap-5 justify-center items-baseline'>
+            <img src={imojiIcon} alt='' className='' />
             <p className='text-center text-[#8b8b8b] text-2xl font-normal capitalize leading-[64px]'>
               feedbacks
             </p>
           </div>
-          <h2 className='text-center'>
+          <h2 className='text-center font-bricolage mb-6'>
             <span className='text-[#232323] text-5xl font-bold capitalize leading-[51px]'>
               bringing the value across <br /> different{" "}
             </span>
@@ -93,8 +133,8 @@ const TestimonialSlider = () => {
         </center>
         <div className='flex gap-5 py-3 max-w-[1030px] mx-auto justify-center items-center'>
           {/* Left Arrow */}
-          <div className='arrow relative -top-12 -left-6'>
-            <ChevronsLeft className='cursor-pointer  swiper-button-prev ' />
+          <div className='arrow relative -left-6'>
+            <ChevronsLeft className='cursor-pointer stroke-black  swiper-button-prev ' />
           </div>
 
           {/* Swiper Component */}
@@ -107,23 +147,28 @@ const TestimonialSlider = () => {
             loop={true}
             spaceBetween={20}
             initialSlide={0}
-            centeredSlides={true}
-            slidesPerView={5}
+            // centeredSlides={true}
+            slidesPerView={4}
             onSlideChange={handleSlideChange}
             onActiveIndexChange={(swiper) => {
               setActiveIndex(swiper.realIndex);
             }}
-            className='card-container relative px-8 min-h-[300px] h-auto gap-5'
+            className='card-container relative px-8 min-h-[230px] gap-5'
           >
             {testimonials.map((testimonial, index) => {
-              // let isBeforeTwo = Math.abs(activeIndex - 2) % testimonials.length;
-              // let isAfterTwo = Math.abs(activeIndex + 2) % testimonials.length;
+              const isActive = index === activeIndex;
               return (
                 <SwiperSlide
                   key={testimonial.id}
-                  className={`duration-200 border-2 rounded-lg transition-all ease-out ${
-                    index === activeIndex ? " custome-scale blur-0" : ""
+                  className={`duration-200 transition-all border-4 border-red-500 ease-out ${
+                    index === activeIndex
+                      ? " custome-scale"
+                      : "custome-without-scale"
                   }`} // Apply blur to first and last slide
+                  style={{
+                    filter: isActive ? "none" : "grayscale(100%)",
+                    transition: "filter 0.3s ease",
+                  }}
                 >
                   <Card
                     testimonial={testimonial}
@@ -136,27 +181,25 @@ const TestimonialSlider = () => {
           </Swiper>
 
           {/* Right Arrow */}
-          <div className='arrow relative -top-12 left-6'>
-            <ChevronsLeft className='rotate-180 cursor-pointer swiper-button-next' />
+          <div className='arrow relative left-6'>
+            <ChevronsLeft className='rotate-180 stroke-black cursor-pointer swiper-button-next' />
           </div>
         </div>
 
         {/* Testimonial Section */}
         <div className='card-with-shape max-w-[1030px] content mx-auto col-span-full relative items-center gap-3 bg-white flex flex-col testimonial-shadow py-6'>
-          <div className='absolute -top-2.5 inset-auto bg-white'>
+          <div className='absolute -top-2.5 left-36 bg-white'>
             <img src={testimonialArrow} alt='' />
           </div>
           <div className='absolute top-2 left-14'>
             <img src={quoteIcon} className='size-16' alt='Quote Icon' />
           </div>
-          <p className='max-w-[762px] text-center'>
-            <span className='text-black text-2xl font-normal font-inter'>
-              {activeTestimonial.message}
-            </span>
+          <p
+            ref={textRef}
+            className='max-w-[762px] text-center text-black text-2xl font-normal font-inter'
+          >
+            {activeTestimonial.message}
           </p>
-          <i>
-            <img src={imojiIcon} alt='' />
-          </i>
         </div>
       </div>
     </div>
@@ -204,12 +247,12 @@ const Card = ({ testimonial, index, activeIndex }) => {
         ease: "power3.out",
       });
     }
-  }, [activeIndex, index]); // Reapply when activeIndex changes
+  }, [activeIndex, index]);
 
   return (
     <div
       ref={cardRef}
-      className={`flex-col flex-shrink-0 cursor-pointer rounded-[46px] border-0 bg-neutral-50 flex justify-center items-center px-8 py-6`}
+      className={`flex-col flex-shrink-0 font-bricolage cursor-pointer rounded-[46px] border-0 bg-neutral-50 flex justify-center items-center px-8 py-6`}
     >
       <img
         src={testimonial?.img}
@@ -219,7 +262,7 @@ const Card = ({ testimonial, index, activeIndex }) => {
       <div>
         <h3
           ref={nameRef}
-          className='text-[#7a7a7a] mt-2  font-bricolage text-xl font-bold capitalize text-center'
+          className='text-[#7a7a7a] mt-2 text-xl font-bold capitalize text-center'
         >
           {testimonial?.name}
         </h3>
