@@ -74,14 +74,6 @@ const TestimonialSlider = () => {
     const textElement = textRef.current;
     const text = activeTestimonial.message;
 
-    // Clear existing content and split text into spans
-    // textElement.innerHTML = text
-    //   .split("")
-    //   .map(
-    //     (char) =>
-    //       `<span style="display: inline-block; opacity: 0">${char}</span>`
-    //   )
-    //   .join("");
     textElement.innerHTML =
       text
         .split("")
