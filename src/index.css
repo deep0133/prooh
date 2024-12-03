@@ -40,3 +40,28 @@
   border-radius: 46px;
   overflow: hidden;
 }
+
+html,
+body {
+  overflow-y: scroll; /* Enable scrolling */
+  scrollbar-width: none; /* For Firefox */
+  -ms-overflow-style: none; /* For Internet Explorer and Edge */
+}
+
+body::-webkit-scrollbar {
+  display: none; /* For Chrome, Safari, and Edge */
+}
+
+/* Style for sections */
+section {
+  /* height: 100vh; */
+  scroll-snap-align: start; /* Optional: Adds a snap effect */
+}
+
+/* section:nth-child(even) {
+  border: 8px solid yellow;
+}
+
+section:nth-child(odd) {
+  border: 8px solid blue;
+} */

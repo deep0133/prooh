@@ -110,14 +110,16 @@ export default function Compaign() {
   }, []);
 
   return (
-    <div
+    <section
       ref={containerRef}
+      data-bg='white'
+      data-color='black'
       style={{
         zIndex: 9,
       }}
-      className='min-h-screen font-bricolage rounded-t-[58px] relative bg-white flex items-center'
+      className='min-h-svh font-bricolage rounded-t-[58px] rounded-b-[58px] relative bg-white text-black flex items-center'
     >
-      <div className='responsiveWidth bg-white mx-auto py-12 flex justify-between items-center'>
+      <div className='responsiveWidth bg-white mx-auto flex justify-between items-center'>
         <div className='max-w-2xl'>
           <parseInt
             ref={taglineRef}
@@ -165,6 +167,6 @@ export default function Compaign() {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { Fragment, useEffect } from "react";
+import { useEffect } from "react";
 // import BallFalling from "./components/BallFalling";
 import Compaign from "./components/Campaign";
 import ChooseUs from "./components/ChooseUs";
@@ -10,6 +10,8 @@ import FriendlyTeam from "./components/FriendlyTeam";
 import FAQSection from "./components/FAQSesstion";
 import { gsap } from "gsap";
 import HorizontalScroll from "./components/HorizontalScroll";
+import TryNow from "./components/TryNow";
+
 export default function App() {
   const cursorRef = useRef(null);
   useEffect(() => {
@@ -32,23 +34,28 @@ export default function App() {
     };
   }, []);
   return (
-    <Fragment className='min-w-[1300px] overflow-auto'>
+    <div className='w-full overflow-y-auto overflow-x-hidden'>
       <Header />
-      {/* <BallFalling /> */}
-      <div className='min-h-screen'>
+      <section
+        data-bg='black'
+        data-color='white'
+        className='min-h-svh bg-black overflow-x-hidden text-white'
+      >
         <Hero />
-      </div>
+      </section>
       <Compaign />
+      <TryNow />
       <ChooseUs />
-      <Testimonial />
-      <FriendlyTeam />
       <HorizontalScroll />
+      <FriendlyTeam />
+      <Testimonial />
       <FAQSection />
+
       <div
         ref={cursorRef}
         className='fixed top-0 left-0 w-8 h-8 bg-white rounded-full pointer-events-none mix-blend-difference'
         style={{ transform: "translate(-50%, -50%)", zIndex: 9999 }}
       ></div>
-    </Fragment>
+    </div>
   );
 }

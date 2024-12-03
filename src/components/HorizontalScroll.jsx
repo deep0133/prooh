@@ -124,13 +124,24 @@ export default function HorizontalScrollCards() {
   }, []);
 
   return (
-    <div ref={triggerRef} className='min-h-screen pt-28 relative z-10 bg-white'>
-      <div className='mx-auto py-12 responsiveWidth'>
+    <div
+      ref={triggerRef}
+      data-bg='white'
+      data-color='black'
+      className='min-h-svh pt-28 relative z-10 text-black bg-white'
+    >
+      <div
+        data-bg='white'
+        data-color='black'
+        className='mx-auto py-12 w-full overflow-x-hidden'
+      >
         <div
           ref={containerRef}
-          className='flex overflow-x-hidden pt-8 items-center space-x-6 pb-6'
+          data-bg='white'
+          data-color='black'
+          className='flex overflow-x-hidden pt-8 items-center bg-white text-black  space-x-6 pb-6'
         >
-          <div className='space-y-6 min-w-[606px] mr-6 font-bricolage'>
+          <div className='space-y-6 min-w-[606px] ml-[10%] mr-6 font-bricolage'>
             <h2 className='text-[#252525] text-[64px] font-bold leading-[68px]'>
               Contextual targeting in{" "}
               <span className='text-muted-foreground text-[#a0a0a0] lowercase'>

@@ -92,115 +92,119 @@ export default function FAQSection() {
   };
 
   return (
-    <div
-      className='min-h-screen bg-[#181818] border-t py-16 border-[#31313139] relative'
+    <section
+      data-bg='#181818'
+      data-color='white'
+      className='min-h-screen bg-[#181818] flex justify-center items-center text-white relative bottom-0'
       ref={containerRef}
     >
-      <div className='responsiveWidth'>
-        {/* FAQ Header */}
-        <div className=' mb-8'>
-          <div className='h-[30px] text-[#8b8b8b] text-2xl mb-8 font-normal font-bricolage capitalize leading-[64px]'>
-            <span className='text-yellow-500'>😊</span>
-            <span>F.A.Q</span>
+      <div className='min-h-screen bg-[#181818] border-t py-16 border-[#31313139] relative'>
+        <div className='responsiveWidth'>
+          {/* FAQ Header */}
+          <div className=' mb-8'>
+            <div className='h-[30px] text-[#8b8b8b] text-2xl mb-8 font-normal font-bricolage capitalize leading-[64px]'>
+              <span className='text-yellow-500'>😊</span>
+              <span>F.A.Q</span>
+            </div>
+            <div>
+              <span className='text-white text-4xl font-bold font-bricolage capitalize leading-[51px]'>
+                here are the some <br />
+                common question about{" "}
+              </span>
+              <span className='text-[#808080] text-5xl font-bold font-bricolage capitalize leading-[51px]'>
+                prooh
+              </span>
+            </div>
           </div>
-          <div>
-            <span className='text-white text-5xl font-bold font-bricolage capitalize leading-[51px]'>
-              here are the some <br />
-              common question about{" "}
-            </span>
-            <span className='text-[#808080] text-5xl font-bold font-bricolage capitalize leading-[51px]'>
-              prooh
-            </span>
-          </div>
-        </div>
 
-        <div className='list-and-cta grid grid-cols-2 gap-28'>
-          {/* FAQ List */}
-          <div className='mx-auto relative'>
-            {faqData.map((item) => (
-              <div key={item.id} className='mb-4 card'>
-                <button
-                  onClick={() => handleQuestionClick(item.id)}
-                  className={`w-full text-left py-4 rounded-lg relative flex items-center justify-between ${
-                    activeId === item.id ? "" : ""
-                  } transition-colors duration-200`}
-                >
-                  <span
-                    className={`text-white font-semibold pr-10 font-inter leading-normal ${
-                      activeId === item.id ? "text-xl" : ""
-                    }`}
+          <div className='list-and-cta grid grid-cols-2 gap-28'>
+            {/* FAQ List */}
+            <div className='mx-auto relative'>
+              {faqData.map((item) => (
+                <div key={item.id} className='mb-4 card'>
+                  <button
+                    onClick={() => handleQuestionClick(item.id)}
+                    className={`w-full text-left py-4 rounded-lg relative flex items-center justify-between ${
+                      activeId === item.id ? "" : ""
+                    } transition-colors duration-200`}
                   >
-                    {item.question}
-                  </span>
-                  {activeId === item.id ? (
-                    <SquareMinus
-                      className={`size-6 ${
-                        activeId === item.id ? "text-white" : "text-[#858585]"
-                      } flex-shrink-0`}
-                    />
-                  ) : (
-                    <SquarePlus className='size-6 text-blue-400 flex-shrink-0' />
-                  )}
-                </button>
-                <hr className='border border-[#5b5b5b] h-0' />
-              </div>
-            ))}
+                    <span
+                      className={`text-white font-semibold pr-10 font-inter leading-normal ${
+                        activeId === item.id ? "text-xl" : ""
+                      }`}
+                    >
+                      {item.question}
+                    </span>
+                    {activeId === item.id ? (
+                      <SquareMinus
+                        className={`size-6 ${
+                          activeId === item.id ? "text-white" : "text-[#858585]"
+                        } flex-shrink-0`}
+                      />
+                    ) : (
+                      <SquarePlus className='size-6 text-[#858585] flex-shrink-0' />
+                    )}
+                  </button>
+                  <hr className='border border-[#5b5b5b] h-0' />
+                </div>
+              ))}
 
-            {/* Floating Answer Card */}
-            {activeId && (
+              {/* Floating Answer Card */}
+              {activeId !== null && (
+                <div
+                  ref={cardRef}
+                  className='faq-card block sm:hidden fixed md:absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 md:translate-y-0 md:top-0 md:right-0 md:left-auto bg-white rounded-2xl p-6 shadow-xl w-[90%] md:w-[400px] z-10'
+                >
+                  <h3 className='text-gray-900 font-semibold mb-4'>
+                    {faqData.find((item) => item.id === activeId)?.question}
+                  </h3>
+                  <p className='text-gray-600'>
+                    {faqData.find((item) => item.id === activeId)?.answer}
+                  </p>
+                </div>
+              )}
+            </div>
+
+            <div className='list-data hidden sm:block'>
               <div
                 ref={cardRef}
-                className='faq-card block sm:hidden fixed md:absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 md:translate-y-0 md:top-0 md:right-0 md:left-auto bg-white rounded-2xl p-6 shadow-xl w-[90%] md:w-[400px] z-10'
+                className='faq-card bg-white rounded-2xl p-6 shadow-xl z-10'
               >
-                <h3 className='text-gray-900 font-semibold mb-4'>
+                <h3 className='text-black text-2xl font-semibold font-inter leading-normal'>
                   {faqData.find((item) => item.id === activeId)?.question}
                 </h3>
-                <p className='text-gray-600'>
+                <p className='text-black text-xl font-normal font-inter mt-3 leading-relaxed'>
                   {faqData.find((item) => item.id === activeId)?.answer}
                 </p>
               </div>
-            )}
-          </div>
-
-          <div className='list-data hidden sm:block'>
-            <div
-              ref={cardRef}
-              className='faq-card bg-white rounded-2xl p-6 shadow-xl z-10'
-            >
-              <h3 className='text-black text-2xl font-semibold font-inter leading-normal'>
-                {faqData.find((item) => item.id === activeId)?.question}
-              </h3>
-              <p className='text-black text-xl font-normal font-inter mt-3 leading-relaxed'>
-                {faqData.find((item) => item.id === activeId)?.answer}
-              </p>
             </div>
           </div>
-        </div>
-        {/* Bottom CTA */}
-        <div className='mx-auto mt-16 px-[52px] py-[41px] flex justify-between bg-[#202020] rounded-[34px] p-8 text-center'>
-          <div>
+          {/* Bottom CTA */}
+          <div className='mx-auto mt-16 px-[52px] py-[41px] flex justify-between bg-[#202020] rounded-[34px] p-8 text-center'>
             <div>
-              <span className='text-white text-[32px] font-semibold font-bricolage capitalize leading-[41.38px]'>
-                Ready to Stand Out
-              </span>
-              <span className='text-black text-[32px] font-semibold font-bricolage capitalize leading-[41.38px]'>
-                {" "}
-              </span>
-              <span className='text-[#585858] text-[32px] font-semibold font-bricolage capitalize leading-[41.38px]'>
-                With AI-Driven Approach?
-              </span>
+              <div>
+                <span className='text-white text-[32px] font-semibold font-bricolage capitalize leading-[41.38px]'>
+                  Ready to Stand Out
+                </span>
+                <span className='text-black text-[32px] font-semibold font-bricolage capitalize leading-[41.38px]'>
+                  {" "}
+                </span>
+                <span className='text-[#585858] text-[32px] font-semibold font-bricolage capitalize leading-[41.38px]'>
+                  With AI-Driven Approach?
+                </span>
+              </div>
             </div>
+            <button className='flex px-6 py-3 gap-3 items-center rounded-full bg-white   transition-colors duration-200'>
+              <span>
+                <img src={rightArrowIcon} alt='' />
+              </span>
+              <span className='text-center text-black text-base font-bold font-inter capitalize leading-tight'>
+                Try For Free
+              </span>
+            </button>
           </div>
-          <button className='flex px-6 py-3 gap-3 items-center rounded-full bg-white   transition-colors duration-200'>
-            <span>
-              <img src={rightArrowIcon} alt='' />
-            </span>
-            <span className='text-center text-black text-base font-bold font-inter capitalize leading-tight'>
-              Try For Free
-            </span>
-          </button>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

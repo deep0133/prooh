@@ -1,14 +1,18 @@
 import { useRef } from "react";
 import { motion } from "framer-motion";
+import { useGSAP } from "@gsap/react";
 
 export default function ChooseUs() {
   const componentRef = useRef(null);
 
+  useGSAP(() => {}, []);
+
   return (
-    <div
+    <section
       ref={componentRef}
-      className='font-bricolage border pt-20 min-h-svh relative bg-white'
-      style={{ zIndex: 9, minHeight: "calc(100vh - 80px)" }}
+      data-bg='white'
+      data-color='black'
+      className='font-bricolage border z-10 min-h-svh  flex justify-center items-center border-e-gray-600  relative text-black bg-white'
     >
       {/* Main Content */}
       <div className=' responsiveWidth'>
@@ -80,6 +84,6 @@ export default function ChooseUs() {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

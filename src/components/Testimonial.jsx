@@ -102,11 +102,17 @@ const TestimonialSlider = () => {
   };
 
   return (
-    <div
-      className='testimonial-slider py-16 relative border bg-white mx-auto'
+    <section
+      data-bg='white'
+      data-color='black'
+      className='testimonial-slider rounded-b-[58px] py-16 relative text-black bg-white mx-auto'
       style={{ minHeight: "calc(100vh - 80px)", zIndex: 9 }}
     >
-      <div className='responsiveWidth'>
+      <div
+        data-bg='white'
+        data-color='black'
+        className='responsiveWidth relative bg-white'
+      >
         <center>
           <div className='flex gap-5 justify-center items-baseline'>
             <img src={imojiIcon} alt='' className='' />
@@ -194,7 +200,7 @@ const TestimonialSlider = () => {
           </p>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
