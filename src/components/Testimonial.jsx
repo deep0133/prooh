@@ -151,16 +151,16 @@ const TestimonialSlider = () => {
             onActiveIndexChange={(swiper) => {
               setActiveIndex(swiper.realIndex);
             }}
-            className='card-container relative px-8 min-h-[230px] gap-5'
+            className='card-container relative min-h-[250px] gap-5'
           >
             {testimonials.map((testimonial, index) => {
               const isActive = index === activeIndex;
               return (
                 <SwiperSlide
                   key={testimonial.id}
-                  className={`duration-200 transition-all border-4 border-red-500 ease-out ${
+                  className={`duration-200 transition-all pt-2 ease-out ${
                     index === activeIndex
-                      ? " custome-scale"
+                      ? " custome-scaled"
                       : "custome-without-scale"
                   }`} // Apply blur to first and last slide
                   style={{
@@ -185,7 +185,7 @@ const TestimonialSlider = () => {
         </div>
 
         {/* Testimonial Section */}
-        <div className='card-with-shape max-w-[1030px] content mx-auto col-span-full relative items-center gap-3 bg-white flex flex-col testimonial-shadow py-6'>
+        <div className='card-with-shape content mx-auto col-span-full relative items-center gap-3 bg-white flex flex-col testimonial-shadow py-6'>
           <div className='absolute -top-2.5 left-36 bg-white'>
             <img src={testimonialArrow} alt='' />
           </div>
@@ -217,7 +217,7 @@ const Card = ({ testimonial, index, activeIndex }) => {
       gsap.to(cardRef.current, {
         border: "0.2px solid rgb(128, 125, 125)",
         boxShadow: "6px 8px 0px black",
-        scale: 1.15,
+        scale: 1,
         borderRadius: "30px",
         duration: 0.3,
         ease: "ease-out",
@@ -233,7 +233,7 @@ const Card = ({ testimonial, index, activeIndex }) => {
       gsap.to(cardRef.current, {
         border: "0.2px solid transparent",
         boxShadow: "none",
-        scale: 1,
+        scale: 0.8,
         borderRadius: "10px",
         duration: 0.3,
         ease: "ease-out",

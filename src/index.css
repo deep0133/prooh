@@ -27,7 +27,7 @@
 }
 
 .custome-scale {
-  transform: scale(1.02);
+  transform: scale(1);
   border: 0.2px solid rgb(128, 125, 125);
   box-shadow: 6px 8px 0px black;
   border-radius: 46px;
@@ -36,6 +36,7 @@
 
 .custome-without-scale {
   border-width: 0px;
+  transform: scale(0.8);
   background-color: #fafafa;
   border-radius: 46px;
   overflow: hidden;
