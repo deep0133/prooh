@@ -111,58 +111,11 @@ export default function Header() {
   useGSAP(() => {
     const sections = gsap.utils.toArray("section");
 
-    // sections.forEach((section, index) => {
-    //   const sectionBgColor = getComputedStyle(section).backgroundColor;
-    //   const sectionTextColor = getComputedStyle(section).color;
-
-    //   ScrollTrigger.create({
-    //     trigger: section,
-    //     start: `top-=100px top`, // Adjust based on your header height
-    //     end: "bottom bottom-=120px",
-    //     markers: true,
-    //     onEnter: (self) => {
-    //       if (self.direction === 1)
-    //         return updateHeaderColors(sectionBgColor, sectionTextColor);
-    //     },
-    //     onEnterBack: () => (self) => {
-    //       if (self.direction === -1)
-    //         return updateHeaderColors(sectionBgColor, sectionTextColor);
-    //     },
-    //     onLeave: () => {
-    //       // When leaving a section going down, update to the next section's colors
-    //       const nextSection = sections[index + 1];
-    //       if (nextSection) {
-    //         const nextBgColor = getComputedStyle(nextSection).backgroundColor;
-    //         const nextTextColor = getComputedStyle(nextSection).color;
-    //         updateHeaderColors(nextBgColor, nextTextColor);
-    //       }
-    //     },
-    //     onLeaveBack: () => {
-    //       // When leaving a section going up, update to the previous section's colors
-    //       const prevSection = sections[index - 1];
-    //       if (prevSection) {
-    //         const prevBgColor = getComputedStyle(prevSection).backgroundColor;
-    //         const prevTextColor = getComputedStyle(prevSection).color;
-    //         updateHeaderColors(prevBgColor, prevTextColor);
-    //       }
-    //     },
-    //   });
-    // });
-
-    // // Initial header state
-    // const firstSection = sections[0];
-    // const initialBgColor = getComputedStyle(firstSection).backgroundColor;
-    // const initialTextColor = getComputedStyle(firstSection).color;
-    // gsap.set(headerRef.current, {
-    //   backgroundColor: initialBgColor,
-    //   color: initialTextColor,
-    // });
     sections.forEach((section) => {
       ScrollTrigger.create({
         trigger: section,
-        start: "top 20%",
+        start: "top 50px",
         end: "bottom 20%",
-        markers: true,
         onEnter: () => updateHeaderColors(section),
         onEnterBack: () => updateHeaderColors(section),
       });
