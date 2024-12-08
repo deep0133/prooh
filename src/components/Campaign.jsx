@@ -117,7 +117,7 @@ export default function Compaign() {
       style={{
         zIndex: 9,
       }}
-      className='min-h-svh font-bricolage rounded-t-[58px] rounded-b-[58px] relative bg-white text-black flex items-center'
+      className='min-h-svh font-bricolage rounded-t-[58px] relative bg-white text-black flex items-center'
     >
       <div className='responsiveWidth bg-white mx-auto flex justify-between items-center'>
         <div className='max-w-2xl'>

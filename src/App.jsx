@@ -10,7 +10,9 @@ import FriendlyTeam from "./components/FriendlyTeam";
 import FAQSection from "./components/FAQSesstion";
 import { gsap } from "gsap";
 import HorizontalScroll from "./components/HorizontalScroll";
-import TryNow from "./components/TryNow";
+import AnimatedSearch from "./components/AnimatedSearch";
+import LogoMarquee from "./components/LogoMarquee";
+import ScrollScaleCard from "./components/scroll/ScrollScaleCard";
 
 export default function App() {
   const cursorRef = useRef(null);
@@ -39,12 +41,17 @@ export default function App() {
       <section
         data-bg='black'
         data-color='white'
-        className='min-h-svh bg-black overflow-x-hidden text-white'
+        className='min-h-[2svh] bg-white overflow-x-hidden text-white'
       >
-        <Hero />
+        <div className='relative min-h-svh'>
+          <Hero />
+        </div>
+        <Compaign />
       </section>
-      <Compaign />
-      <TryNow />
+
+      <AnimatedSearch />
+      <LogoMarquee />
+      <ScrollScaleCard />
       <ChooseUs />
       <HorizontalScroll />
       <FriendlyTeam />

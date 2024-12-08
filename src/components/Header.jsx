@@ -134,14 +134,14 @@ export default function Header() {
     }
   }, []);
 
-  const updateHeaderColors = (bgColor, textColor) => {
-    gsap.to(headerRef.current, {
-      backgroundColor: bgColor,
-      color: textColor,
-      duration: 0.4,
-      ease: "power3.in",
-    });
-  };
+  // const updateHeaderColors = (bgColor, textColor) => {
+  //   gsap.to(headerRef.current, {
+  //     backgroundColor: bgColor,
+  //     color: textColor,
+  //     duration: 0.4,
+  //     ease: "power3.in",
+  //   });
+  // };
 
   return (
     <div className='relative h-20 z-50'>

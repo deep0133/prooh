@@ -51,6 +51,7 @@ body {
 
 body::-webkit-scrollbar {
   display: none; /* For Chrome, Safari, and Edge */
+  width: 0px;
 }
 
 /* Style for sections */
