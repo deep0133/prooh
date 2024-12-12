@@ -34,19 +34,21 @@ export default function ScrollScaleCard() {
       ref={containerRef}
       data-bg='black'
       data-color='white'
-      className='min-h-svh z-10 relative bg-black text-white'
+      className='min-h-svh h-auto z-10 relative bg-black text-white'
     >
       {/* Hero Section */}
-      <div className='relative flex flex-col items-center justify-center px-4'>
+      <div className='relative h-full pb-20 flex flex-col items-center justify-center px-4'>
         <h1 className='text-center mb-16'>
-          <span className='block text-6xl font-light mb-4 font-bricolage'>
+          <span className='block text-5xl md:text-6xl font-light mb-4 font-bricolage'>
             <span className='text-gray-500'>AI-first</span> social media
           </span>
-          <span className='block text-6xl '>analysis & listening</span>
+          <span className='block text-5xl md:text-6xl '>
+            analysis & listening
+          </span>
         </h1>
 
         {/* Navigation Pills */}
-        <div className='flex items-center font-inter  gap-2 p-1 bg-zinc-900 rounded-full '>
+        <div className='flex items-center sm:flex-row flex-col font-inter  gap-2 p-1 bg-zinc-900 space-y-2 sm:rounded-full '>
           <button className='flex items-center gap-2 px-6 py-2 bg-white text-black rounded-full'>
             <Search className='w-4 h-4' />
             Search
@@ -68,7 +70,7 @@ export default function ScrollScaleCard() {
         {/* Card with scroll-based scaling */}
         <div
           ref={cardRef}
-          className='w-full max-w-2xl translate-y-28 flex justify-center items-center bg-white text-black rounded-2xl shadow-2xl overflow-hidden'
+          className='w-full max-w-[60%] mt-20 md:max-w-2xl flex justify-center items-center bg-white text-black rounded-2xl shadow-2xl relative overflow-hidden'
         >
           <div className='p-8'>
             <h2 className='text-2xl font-semibold mb-2'>

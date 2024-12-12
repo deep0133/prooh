@@ -59,11 +59,11 @@ export default function App() {
       <AnimatedSearch />
       <LogoMarquee />
       <ScrollScaleCard />
-      <ChooseUs />
+      {/* <ChooseUs /> */}
+      <HorizontalScroll />
       <FriendlyTeam />
       <FAQSection />
-      <HorizontalScroll />
-      <Testimonial />
+      {/* <Testimonial /> */}
 
       <div
         ref={cursorRef}

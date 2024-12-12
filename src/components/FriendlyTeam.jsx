@@ -73,15 +73,14 @@ function FriendlyTeam() {
         ref={friendlyTeamRef}
         data-bg='#181818'
         data-color='white'
-        style={{ zIndex: 9 }}
-        className='min-h-svh relative bg-[#181818]  text-white flex flex-col justify-center gap-6'
+        className='min-h-svh z-10 py-16 relative bg-[#181818]  text-white flex flex-col justify-center gap-6'
       >
         <div className='bg-[#181818] min-h-svh relative text-white flex flex-col justify-center gap-6'>
           <div className='text-white responsiveWidth flex flex-col text-center gap-1 '>
             <div className='text-center justify-center flex'>
               <img src={logo} alt='' className='h-[26px]' />
             </div>
-            <div className='text-center font-bricolage leading-[51px] capitalize font-bold text-5xl'>
+            <div className='text-center font-bricolage leading-[51px] capitalize font-bold text-[43px] sm:text-5xl'>
               <span className='text-white'>Contact our friendly</span>
               <span className='text-[#b2b2b2] '> team</span>
             </div>

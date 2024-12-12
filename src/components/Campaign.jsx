@@ -110,30 +110,27 @@ export default function Compaign() {
       ref={containerRef}
       data-bg='white'
       data-color='black'
-      style={{
-        zIndex: 9,
-      }}
-      className='min-h-svh font-bricolage rounded-t-[58px] relative bg-white text-black flex items-center'
+      className='min-h-svh z-20 font-bricolage rounded-t-[36px] md:rounded-t-[58px] relative bg-white text-black flex items-center'
     >
       <div className='responsiveWidth bg-white mx-auto flex justify-between items-center'>
-        <div className='max-w-2xl'>
-          <parseInt
+        <div className='max-w-2xl mx-auto md:mx-0'>
+          <div
             ref={taglineRef}
-            className='text-center mb-4 text-[#565656] text-2xl font-normal font-inter capitalize leading-[31.03px] tracking-tight'
+            className='text-start mb-2  md:mb-4 text-[#565656] text-xl md:text-2xl font-normal font-inter capitalize leading-[31.03px] tracking-tight'
           >
             outdoor campaign{" "}
-          </parseInt>
+          </div>
 
           <h1
             ref={headingRef}
-            className='max-w-[595px] text-black text-[64px] font-bold capitalize leading-[69px]'
+            className='max-w-[595px] text-black text-[46px] sm:text-[56px] md:text-[64px] font-bold capitalize leading-[45px] sm:leading-[54px] md:leading-[69px]'
           >
             Save 30+ hours on every research
           </h1>
 
           <p
             ref={subtitleRef}
-            className='max-w-[754px] text-[#090909] mb-8 text-xl font-normal font-inter leading-relaxed'
+            className='max-w-[754px] text-[#090909] mb-8 mt-2 text-[16px] md:text-xl font-normal font-inter leading-relaxed'
           >
             Harness the power of data-driven campaigns to create meaningful
             connections with your audience, leaving a lasting impression that
@@ -142,7 +139,7 @@ export default function Compaign() {
 
           <button
             ref={buttonRef}
-            className='w-[231px] h-[72px] bg-neutral-50 rounded-lg border border-black justify-center items-center inline-flex text-black text-xl font-normal font-inter capitalize leading-relaxed tracking-tight'
+            className='md:w-[231px] md:h-[72px] h-[52px] w-[170px] bg-neutral-50 rounded-lg border border-black justify-center items-center inline-flex text-black text-xl font-normal font-inter capitalize leading-relaxed tracking-tight'
           >
             create plan
             <ArrowRight className='ml-2 h-4 w-4 transition-transform group-hover:translate-x-1' />
@@ -151,7 +148,7 @@ export default function Compaign() {
 
         <div
           ref={circleRef}
-          className='hidden md:block relative w-[400px] h-[400px] bg-zinc-50 rounded-full'
+          className='hidden lg:block relative w-[400px] h-[400px] bg-zinc-50 rounded-full'
         >
           <div
             ref={barsRef}

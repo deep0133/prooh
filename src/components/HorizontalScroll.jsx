@@ -122,11 +122,11 @@ export default function HorizontalScrollCards() {
   }, []);
 
   return (
-    <div
+    <section
       ref={triggerRef}
       data-bg='white'
       data-color='black'
-      className='min-h-svh  relative z-10 text-black bg-white'
+      className='min-h-svh border border-transparent relative z-10 flex items-center text-black bg-white'
     >
       <div
         data-bg='white'
@@ -139,8 +139,8 @@ export default function HorizontalScrollCards() {
           data-color='black'
           className='flex overflow-x-hidden pt-10 items-center bg-white text-black  space-x-6 pb-6'
         >
-          <div className='space-y-6 min-w-[606px] ml-[10%] mr-6 font-bricolage'>
-            <h2 className='text-[#252525] text-[64px] font-bold leading-[68px]'>
+          <div className='space-y-6 min-w-[90%] sm:min-w-[606px] ml-[10%] mr-6 font-bricolage'>
+            <h2 className='text-[#252525] text-[46px] sm:text-[56px] md:text-[64px] font-bold leading-[68px]'>
               Contextual targeting in{" "}
               <span className='text-muted-foreground text-[#a0a0a0] lowercase'>
                 dooh & ooh
@@ -168,13 +168,18 @@ export default function HorizontalScrollCards() {
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 
 function Card({ title, description }) {
   return (
-    <div className='flex-shrink-0 relative overflow-visible w-[453px] h-[412px] bg-[#CFD1FF] rounded-[14px]'>
+    <div
+      style={{
+        width: "min(453px, 90%)",
+      }}
+      className='flex-shrink-0 relative overflow-visible h-[412px] bg-[#CFD1FF] rounded-[14px]'
+    >
       <div className='space-y-4 px-8 py-16'>
         <h3 className='text-[#252525] text-[32px] font-bold font-bricolage  lowercase leading-[38px]'>
           {title}
@@ -182,7 +187,7 @@ function Card({ title, description }) {
         <p className='text-black text-xl pt-3 font-normal font-inter leading-[30px]s'>
           {description}
         </p>
-        <div className='flex absolute bottom-10 w-[391px] justify-between items-start'>
+        <div className='flex absolute bottom-10 inset-x-0 px-8 items-center justify-between'>
           <button size='text-black text-xl font-normal font-inter leading-[30px]'>
             Know more
           </button>
@@ -193,7 +198,7 @@ function Card({ title, description }) {
       </div>
       <img
         src={bagIcon}
-        className='absolute  size-[84px] left-8 -top-10 z-50'
+        className='absolute size-[84px] left-8 -top-10 z-50'
         alt=''
       />
     </div>
