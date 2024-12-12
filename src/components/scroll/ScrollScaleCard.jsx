@@ -1,10 +1,6 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Search, BarChart2, HelpCircle, Activity } from "lucide-react";
-
-// Register ScrollTrigger plugin
-gsap.registerPlugin(ScrollTrigger);
 
 export default function ScrollScaleCard() {
   const cardRef = useRef(null);
@@ -34,7 +30,7 @@ export default function ScrollScaleCard() {
   }, []);
 
   return (
-    <div
+    <section
       ref={containerRef}
       data-bg='black'
       data-color='white'
@@ -82,6 +78,6 @@ export default function ScrollScaleCard() {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

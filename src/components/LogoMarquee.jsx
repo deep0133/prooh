@@ -1,5 +1,3 @@
-// "use client";
-
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { Building2 } from "lucide-react";
@@ -30,7 +28,7 @@ export default function LogoMarquee() {
   }, []);
 
   return (
-    <div
+    <section
       data-bg='black'
       data-color='white'
       className='w-full z-10 relative bg-black text-white py-16 overflow-hidden'
@@ -62,7 +60,7 @@ export default function LogoMarquee() {
         <div className='absolute left-0 top-0 h-full w-20 bg-gradient-to-r from-black to-transparent' />
         <div className='absolute right-0 top-0 h-full w-20 bg-gradient-to-l from-black to-transparent' />
       </div>
-    </div>
+    </section>
   );
 }
 

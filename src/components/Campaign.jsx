@@ -1,11 +1,7 @@
 import { useRef } from "react";
 import { gsap } from "gsap";
-// import { Button } from '@/components/ui/button'
 import { ArrowRight } from "lucide-react";
 import { useGSAP } from "@gsap/react";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
 
 export default function Compaign() {
   const containerRef = useRef(null);

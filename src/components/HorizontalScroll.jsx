@@ -5,8 +5,6 @@ import { ArrowRight } from "lucide-react";
 import { useGSAP } from "@gsap/react";
 import rightDoubleArrow from "../assets/rightDoubleArrow.png";
 import bagIcon from "../assets/images/clock.png";
-// Register ScrollTrigger plugin
-gsap.registerPlugin(ScrollTrigger);
 
 // Sample card data
 const cardData = [
@@ -128,7 +126,7 @@ export default function HorizontalScrollCards() {
       ref={triggerRef}
       data-bg='white'
       data-color='black'
-      className='min-h-svh pt-28 relative z-10 text-black bg-white'
+      className='min-h-svh  relative z-10 text-black bg-white'
     >
       <div
         data-bg='white'

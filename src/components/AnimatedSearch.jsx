@@ -2,9 +2,6 @@ import { useRef } from "react";
 import { gsap } from "gsap";
 import { Search, ArrowRight, Clock } from "lucide-react";
 import { useGSAP } from "@gsap/react";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
 
 export default function AnimatedSearch() {
   const containerRef = useRef(null);

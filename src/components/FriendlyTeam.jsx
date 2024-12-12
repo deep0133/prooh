@@ -1,4 +1,3 @@
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { gsap } from "gsap";
 import chat from "../assets/svgs/comment.svg";
 import marker from "../assets/svgs/marker.svg";
@@ -7,8 +6,6 @@ import comments from "../assets/svgs/comments.svg";
 import logo from "../assets/logo.png";
 import { useGSAP } from "@gsap/react";
 import { useRef } from "react";
-
-gsap.registerPlugin(ScrollTrigger);
 
 function FriendlyTeam() {
   const cardData = [

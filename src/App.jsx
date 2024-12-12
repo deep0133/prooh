@@ -1,19 +1,19 @@
-import { useRef } from "react";
-import { useEffect } from "react";
-// import BallFalling from "./components/BallFalling";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import TextPlugin from "gsap/TextPlugin";
+import { useEffect, useRef } from "react";
+import AnimatedSearch from "./components/AnimatedSearch";
 import Compaign from "./components/Campaign";
 import ChooseUs from "./components/ChooseUs";
+import FAQSection from "./components/FAQSesstion";
+import FriendlyTeam from "./components/FriendlyTeam";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
-import Testimonial from "./components/Testimonial";
-import FriendlyTeam from "./components/FriendlyTeam";
-import FAQSection from "./components/FAQSesstion";
-import { gsap } from "gsap";
 import HorizontalScroll from "./components/HorizontalScroll";
-import AnimatedSearch from "./components/AnimatedSearch";
 import LogoMarquee from "./components/LogoMarquee";
 import ScrollScaleCard from "./components/scroll/ScrollScaleCard";
-
+import Testimonial from "./components/Testimonial";
+gsap.registerPlugin(ScrollTrigger, TextPlugin);
 export default function App() {
   const cursorRef = useRef(null);
   useEffect(() => {
@@ -29,34 +29,41 @@ export default function App() {
       });
     };
 
+    const handleTouchMove = (e) => {
+      const touch = e.touches[0];
+      const x = touch.clientX;
+      const y = touch.clientY;
+
+      gsap.to(cursorRef.current, {
+        x,
+        y,
+        duration: 0.1,
+        ease: "power1.out",
+      });
+    };
+
     window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("touchmove", handleTouchMove);
 
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("touchmove", handleTouchMove);
     };
   }, []);
   return (
     <div className='w-full overflow-y-auto overflow-x-hidden'>
       <Header />
-      <section
-        data-bg='black'
-        data-color='white'
-        className='min-h-[2svh] bg-white overflow-x-hidden text-white'
-      >
-        <div className='relative min-h-svh'>
-          <Hero />
-        </div>
-        <Compaign />
-      </section>
+      <Hero />
 
+      <Compaign />
       <AnimatedSearch />
       <LogoMarquee />
       <ScrollScaleCard />
       <ChooseUs />
-      <HorizontalScroll />
       <FriendlyTeam />
-      <Testimonial />
       <FAQSection />
+      <HorizontalScroll />
+      <Testimonial />
 
       <div
         ref={cursorRef}
