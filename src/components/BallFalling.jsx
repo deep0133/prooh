@@ -1,12 +1,68 @@
 import { useEffect, useRef } from "react";
 import Matter from "matter-js";
-
 const ICON_SIZE = 80; // Increased size for better interaction
 let CANVAS_WIDTH = window.innerWidth;
 let CANVAS_HEIGHT = window.innerHeight;
 const FallingIcons = ({ icons = [] }) => {
   const sceneRef = useRef(null);
+
   useEffect(() => {
+    const handleWheel = (e) => {
+      if (window.innerWidth >= 768) {
+        // Only prevent default scrolling for desktop
+        e.preventDefault();
+        window.scrollBy(0, e.deltaY);
+      }
+    };
+
+    const isMobile = () =>
+      /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+    if (!isMobile()) {
+      // Only add wheel listener for non-mobile devices
+      window.addEventListener("wheel", handleWheel, { passive: false });
+    }
+
+    return () => {
+      if (!isMobile()) {
+        window.removeEventListener("wheel", handleWheel);
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    const isMobile = () =>
+      /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+    const handleWheel = (e) => {
+      if (!isMobile()) {
+        // Only prevent default scrolling for non-mobile devices
+        e.preventDefault();
+        window.scrollBy(0, e.deltaY);
+      }
+    };
+
+    if (!isMobile()) {
+      // Only add wheel listener for non-mobile devices
+      window.addEventListener("wheel", handleWheel, { passive: false });
+    }
+
+    return () => {
+      if (!isMobile()) {
+        window.removeEventListener("wheel", handleWheel);
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    const isMobile = () =>
+      /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+    // Skip Matter.js setup for mobile devices
+    if (isMobile()) {
+      return;
+    }
+
     const Engine = Matter.Engine;
     const Render = Matter.Render;
     const Runner = Matter.Runner;
