@@ -98,10 +98,10 @@ export default function AnimatedFAQ() {
 
   return (
     <div
-      className='min-h-svh z-10 relative bg-black text-white p-8'
+      className='min-h-svh z-10 relative bg-black text-white p-8 flex justify-center items-center'
       ref={containerRef}
     >
-      <div className='responsiveWidth mx-auto grid md:grid-cols-2 gap-5'>
+      <div className='responsiveWidth mx-auto grid md:grid-cols-2 place-items-center gap-5'>
         <div>
           <div className='flex items-center gap-2'>
             <span>

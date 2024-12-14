@@ -12,7 +12,8 @@ import Hero from "./components/Hero";
 import HorizontalScroll from "./components/HorizontalScroll";
 import LogoMarquee from "./components/LogoMarquee";
 import ScrollScaleCard from "./components/scroll/ScrollScaleCard";
-// import Testimonial from "./components/Testimonial";
+import { AnimatedFooter } from "./components/AnimatedFooter";
+import Testimonial from "./components/Testimonial";
 gsap.registerPlugin(ScrollTrigger, TextPlugin);
 export default function App() {
   const cursorRef = useRef(null);
@@ -64,14 +65,15 @@ export default function App() {
       <Hero />
 
       <Compaign />
-      <AnimatedSearch />
       <LogoMarquee />
       <ScrollScaleCard />
+      <AnimatedSearch />
       {/* <ChooseUs /> */}
       <HorizontalScroll />
       <FriendlyTeam />
+      <Testimonial />
       <FAQSection />
-      {/* <Testimonial /> */}
+      <AnimatedFooter />
 
       <div
         ref={cursorRef}

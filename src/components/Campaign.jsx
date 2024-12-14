@@ -43,7 +43,7 @@ export default function Compaign() {
         defaults: { ease: "power3.out" },
         scrollTrigger: {
           trigger: containerRef.current,
-          start: "top 70%",
+          start: "top 80%",
           end: "bottom 60%",
           scrub: true,
           once: true,
@@ -110,9 +110,9 @@ export default function Compaign() {
       ref={containerRef}
       data-bg='white'
       data-color='black'
-      className='min-h-svh z-20 font-bricolage rounded-t-[36px] md:rounded-t-[58px] relative bg-white text-black flex items-center'
+      className='min-h-svh z-20 rounded-t-[36px] md:rounded-t-[58px] relative bg-white text-black flex items-center'
     >
-      <div className='responsiveWidth bg-white mx-auto flex justify-between items-center'>
+      <div className='responsiveWidth font-bricolage justify-between flex bg-white'>
         <div className='max-w-2xl mx-auto md:mx-0'>
           <div
             ref={taglineRef}

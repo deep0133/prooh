@@ -126,7 +126,7 @@ export default function HorizontalScrollCards() {
       ref={triggerRef}
       data-bg='white'
       data-color='black'
-      className='min-h-svh border border-transparent relative z-10 flex items-center text-black bg-white'
+      className='min-h-svh border border-transparent relative z-20 flex items-center text-black bg-white'
     >
       <div
         data-bg='white'
