@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import smileIcon from "../assets/emoji.png";
 import { X } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 const faqData = [
   {
     id: 1,
@@ -98,9 +99,33 @@ export default function AnimatedFAQ() {
 
   return (
     <div
-      className='min-h-svh z-10 relative bg-black text-white p-8 flex justify-center items-center'
+      className='min-h-svh z-10 relative bg-black text-white flex-col p-8 flex justify-center items-center'
       ref={containerRef}
     >
+      <div className='responsiveWidth flex md:flex-row flex-col md:justify-between md:gap-0 gap-5 md:items-center mb-12 bg-white py-5 min-h-[174px] px-[52px] rounded-[34px]'>
+        <div className=''>
+          <div>
+            <span className='text-black text-[32px] font-semibold font-bricolage capitalize leading-[41.38px]'>
+              Ready to Stand Out{" "}
+            </span>
+            <span className='text-[#585858] text-[32px] font-semibold font-bricolage capitalize leading-[41.38px]'>
+              With AI-Driven Approach?
+            </span>
+          </div>
+          <div className=' text-[#919191] text-base font-normal font-bricolage capitalize leading-tight'>
+            et started with our AI-driven tool and unlock the competitive
+            advantage of real-time audience insights.
+          </div>
+        </div>
+        <div className='w-[185px] h-[57px] flex-shrink-0 px-[21px] py-2.5 bg-[#181818] rounded-[44px] flex-col justify-start items-start gap-2.5 inline-flex'>
+          <div className='justify-start items-center gap-[9px] inline-flex'>
+            <ArrowRight className='size-[34px] p-1.5 text-black bg-white rounded-full' />
+            <div className='text-center text-white text-base font-bold font-inter capitalize leading-tight'>
+              try for free
+            </div>
+          </div>
+        </div>
+      </div>
       <div className='responsiveWidth mx-auto grid md:grid-cols-2 place-items-center gap-5'>
         <div>
           <div className='flex items-center gap-2'>
