@@ -14,6 +14,7 @@ import LogoMarquee from "./components/LogoMarquee";
 import ScrollScaleCard from "./components/scroll/ScrollScaleCard";
 import { AnimatedFooter } from "./components/AnimatedFooter";
 import Testimonial from "./components/Testimonial";
+import AudienceMeasurement from "./components/AudienceMeasurement";
 gsap.registerPlugin(ScrollTrigger, TextPlugin);
 export default function App() {
   const cursorRef = useRef(null);
@@ -67,6 +68,7 @@ export default function App() {
       <Compaign />
       <LogoMarquee />
       <ScrollScaleCard />
+      <AudienceMeasurement />
       <AnimatedSearch />
       {/* <ChooseUs /> */}
       <HorizontalScroll />
