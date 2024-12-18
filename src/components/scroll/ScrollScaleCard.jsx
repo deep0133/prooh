@@ -34,10 +34,10 @@ export default function ScrollScaleCard() {
       ref={containerRef}
       data-bg='black'
       data-color='white'
-      className='min-h-svh h-auto z-10 relative bg-black text-white'
+      className='min-h-svh h-auto z-20 bg-white  w-auto mx-[8px] relative'
     >
       {/* Hero Section */}
-      <div className='relative h-full pb-20 flex flex-col items-center justify-center px-4'>
+      <div className='relative rounded-b-[24px] bg-black text-white h-full pb-20 flex flex-col items-center justify-center px-4'>
         <h1 className='text-center mb-16'>
           <span className='block text-5xl md:text-6xl font-light mb-4 font-bricolage'>
             <span className='text-gray-500'>AI-first</span> social media

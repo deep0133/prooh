@@ -73,9 +73,17 @@ function FriendlyTeam() {
         ref={friendlyTeamRef}
         data-bg='#181818'
         data-color='white'
-        className='min-h-svh z-10 py-16 relative bg-[#181818]  text-white flex flex-col justify-center gap-6'
+        style={{
+          minHeight: "calc(100vh - 12px)",
+        }}
+        className='z-20  mx-[8px] w-auto pb-3  border bg-white relative flex flex-col justify-center gap-6'
       >
-        <div className='bg-[#181818] min-h-svh relative text-white flex flex-col justify-center gap-6'>
+        <div
+          style={{
+            minHeight: "calc(100vh - 12px)",
+          }}
+          className='relative text-white flex flex-col bg-black rounded-t-[24px] pb-3 rounded-b-[24px] justify-center gap-6'
+        >
           <div className='text-white responsiveWidth flex flex-col text-center gap-1 '>
             <div className='text-center justify-center flex'>
               <img src={logo} alt='' className='h-[26px]' />

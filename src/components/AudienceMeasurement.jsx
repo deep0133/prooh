@@ -1,8 +1,7 @@
-import { useEffect, useRef } from "react";
-import { gsap } from "gsap";
-import { Target, MapPin, BarChart3, FileSpreadsheet } from "lucide-react";
 import { useGSAP } from "@gsap/react";
-import { div } from "framer-motion/client";
+import { gsap } from "gsap";
+import { BarChart3, FileSpreadsheet, MapPin, Target } from "lucide-react";
+import { useRef } from "react";
 
 export default function AudienceMeasurement() {
   const containerRef = useRef(null);
@@ -30,7 +29,7 @@ export default function AudienceMeasurement() {
   const cards = [
     {
       icon: Target,
-      title: "Data-Driven Targeting",
+      title: `Data-Driven Targeting`,
       description:
         "PDOOH's Media Planning Tool uses geospatial, POI, and traffic data to estimate audience impressions at specific locations",
       bgColor: "bg-[#ffeeee]",
@@ -108,12 +107,12 @@ const Card = ({ card, cardsRef, index }) => {
     <div
       key={card.title}
       ref={(el) => el && (cardsRef.current[index] = el)}
-      className={`${card.bgColor} rounded-[30px] hover:translate-y-2 translate-y-0 py-6 px-8 transition-shadow duration-300 hover:shadow-xl`}
+      className={`${card.bgColor} rounded-[30px] h-72 hover:translate-y-2 translate-y-0 py-6 px-8 transition-shadow duration-300 shadow-${card.bgColor} hover:shadow-xl`}
     >
       <div className={card.iconColor}>
-        <card.icon size={32} />
+        <card.icon size={32} className='text-black' />
       </div>
-      <h3 className='my-3 text-black text-2xl font-bold font-inter leading-7'>
+      <h3 className='mb-3 mt-5 text-black text-2xl font-bold font-inter leading-7'>
         {card.title}
       </h3>
       <p className='text-black text-base font-normal font-inter leading-snug'>

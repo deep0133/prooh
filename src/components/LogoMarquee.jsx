@@ -31,7 +31,7 @@ export default function LogoMarquee() {
     <section
       data-bg='black'
       data-color='white'
-      className='w-full z-10 relative bg-black text-white py-16 overflow-hidden'
+      className='z-20 w-auto relative rounded-t-[24px] mx-[8px]  bg-black text-white py-16 overflow-hidden'
     >
       <div className='container mx-auto px-4 mb-8'>
         <h2 className='text-2xl font-[100] font-bricolage  text-center text-gray-300/40'>

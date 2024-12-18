@@ -221,9 +221,9 @@ export default function Hero() {
       data-bg='black'
       data-color='white'
       style={{
-        minHeight: "calc(100svh - 80px)",
+        minHeight: "calc(100vh - 16px)",
       }}
-      className='black-section relative w-full bg-black text-white pt-16'
+      className='black-section mx-[8px] z-20 mt-3 w-auto flex items-center justify-center  relative rounded-t-[24px] rounded-b-[24px] bg-black text-white pt-16'
     >
       {/* Custom Cursor */}
       <FallingIcons icons={icons} />

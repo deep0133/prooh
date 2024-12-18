@@ -11,66 +11,77 @@ const cardData = [
   {
     title: "Event-based ad triggering",
     linkg: bagIcon,
+    bgColor: "bg-[#ffeeee]",
     description:
       "We enable contextual targeting in DOOH and OOH, ensuring ads reach the right audience by aligning messaging with relevant events and locations.",
   },
   {
     title: "Real-time optimization",
     linkg: bagIcon,
+    bgColor: "bg-[#e8f5ff]",
     description:
       "Optimize your ad campaigns in real-time based on performance metrics and audience engagement.",
   },
   {
     title: "Advanced targeting",
     linkg: bagIcon,
+    bgColor: "bg-[#f1eeff]",
     description:
       "Leverage advanced targeting capabilities to reach your ideal audience with precision.",
   },
   {
     title: "Cross-channel integration",
     linkg: bagIcon,
+    bgColor: "bg-[#f1ffaf]",
     description:
       "Seamlessly integrate your DOOH and OOH campaigns with other digital marketing channels.",
   },
   {
     title: "Analytics and reporting",
     linkg: bagIcon,
+    bgColor: "bg-[#e8f5ff]",
     description:
       "Get comprehensive insights into your campaign performance with detailed analytics and reporting.",
   },
   {
     title: "Advanced targeting",
     linkg: bagIcon,
+    bgColor: "bg-[#ffeeee]",
     description:
       "Leverage advanced targeting capabilities to reach your ideal audience with precision.",
   },
   {
     title: "Cross-channel integration",
     linkg: bagIcon,
+    bgColor: "bg-[#e8f5ff]",
     description:
       "Seamlessly integrate your DOOH and OOH campaigns with other digital marketing channels.",
   },
   {
     title: "Analytics and reporting",
     linkg: bagIcon,
+    bgColor: "bg-[#f1ffaf]",
     description:
       "Get comprehensive insights into your campaign performance with detailed analytics and reporting.",
   },
   {
     title: "Advanced targeting",
     linkg: bagIcon,
+    bgColor: "bg-[#e8f5ff]",
     description:
       "Leverage advanced targeting capabilities to reach your ideal audience with precision.",
   },
   {
     title: "Cross-channel integration",
     linkg: bagIcon,
+    bgColor: "bg-[#f1ffaf]",
     description:
       "Seamlessly integrate your DOOH and OOH campaigns with other digital marketing channels.",
   },
   {
     title: "Analytics and reporting",
     linkg: bagIcon,
+    bgColor: "bg-[#f1ffaf]",
     description:
       "Get comprehensive insights into your campaign performance with detailed analytics and reporting.",
   },
@@ -93,6 +104,19 @@ export default function HorizontalScrollCards() {
     ScrollTrigger.config({
       limitCallbacks: true,
       ignoreMobileResize: true,
+    });
+
+    gsap.from(".", {
+      y: 50,
+      opacity: 0,
+      duration: 0.8,
+      stagger: 0.2,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: ".social-link",
+        start: "top 70%",
+        toggleActions: "play none none reset",
+      },
     });
 
     const tl = gsap.timeline({
@@ -163,6 +187,7 @@ export default function HorizontalScrollCards() {
             <Card
               key={index}
               title={card.title}
+              bgColor={card.bgColor}
               description={card.description}
             />
           ))}
@@ -172,13 +197,13 @@ export default function HorizontalScrollCards() {
   );
 }
 
-function Card({ title, description }) {
+function Card({ title, description, bgColor }) {
   return (
     <div
       style={{
         width: "min(453px, 90%)",
       }}
-      className='flex-shrink-0 relative overflow-visible h-[412px] bg-[#CFD1FF] rounded-[14px]'
+      className={`flex-shrink-0 relative overflow-visible h-[412px] ${bgColor} rounded-[14px]`}
     >
       <div className='space-y-4 px-8 py-16'>
         <h3 className='text-[#252525] text-[32px] font-bold font-bricolage  lowercase leading-[38px]'>

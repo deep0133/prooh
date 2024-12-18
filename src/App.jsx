@@ -2,19 +2,19 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import TextPlugin from "gsap/TextPlugin";
 import { useEffect, useRef } from "react";
-import AnimatedSearch from "./components/AnimatedSearch";
 import Compaign from "./components/Campaign";
 // import ChooseUs from "./components/ChooseUs";
+import { AnimatedFooter } from "./components/AnimatedFooter";
+import AudienceMeasurement from "./components/AudienceMeasurement";
 import FAQSection from "./components/FAQSesstion";
 import FriendlyTeam from "./components/FriendlyTeam";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import HorizontalScroll from "./components/HorizontalScroll";
 import LogoMarquee from "./components/LogoMarquee";
+import ReadyToStand from "./components/ReadyToStand";
 import ScrollScaleCard from "./components/scroll/ScrollScaleCard";
-import { AnimatedFooter } from "./components/AnimatedFooter";
 import Testimonial from "./components/Testimonial";
-import AudienceMeasurement from "./components/AudienceMeasurement";
 gsap.registerPlugin(ScrollTrigger, TextPlugin);
 export default function App() {
   const cursorRef = useRef(null);
@@ -69,12 +69,13 @@ export default function App() {
       <LogoMarquee />
       <ScrollScaleCard />
       <AudienceMeasurement />
-      <AnimatedSearch />
+      {/* <AnimatedSearch /> */}
       {/* <ChooseUs /> */}
       <HorizontalScroll />
-      <FriendlyTeam />
       <Testimonial />
+      <FriendlyTeam />
       <FAQSection />
+      <ReadyToStand />
       <AnimatedFooter />
 
       <div

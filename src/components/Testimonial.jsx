@@ -96,13 +96,13 @@ const TestimonialSlider = () => {
     <section
       data-bg='white'
       data-color='black'
-      className='testimonial-slider rounded-b-[58px] py-16 relative text-black bg-white mx-auto'
-      style={{ minHeight: "calc(100vh - 80px)", zIndex: 9 }}
+      className='testimonial-slider py-16 z-20  relative text-black bg-white'
+      style={{ minHeight: "calc(100vh - 80px)" }}
     >
       <div
         data-bg='white'
         data-color='black'
-        className='responsiveWidth relative bg-white'
+        className='responsiveWidth relative z-20 bg-white'
       >
         <center>
           <div className='flex gap-5 justify-center items-baseline'>
