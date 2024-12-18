@@ -91,6 +91,8 @@ export default function HorizontalScrollCards() {
   const containerRef = useRef(null);
   const triggerRef = useRef(null);
 
+  const contextualRef = useRef(null);
+
   useGSAP(() => {
     const container = containerRef.current;
     const trigger = triggerRef.current;
@@ -106,7 +108,7 @@ export default function HorizontalScrollCards() {
       ignoreMobileResize: true,
     });
 
-    gsap.from(".", {
+    gsap.from(contextualRef.current, {
       y: 50,
       opacity: 0,
       duration: 0.8,
@@ -163,7 +165,10 @@ export default function HorizontalScrollCards() {
           data-color='black'
           className='flex overflow-x-hidden pt-10 items-center bg-white text-black  space-x-6 pb-6'
         >
-          <div className='space-y-6 min-w-[90%] sm:min-w-[606px] ml-[10%] mr-6 font-bricolage'>
+          <div
+            ref={contextualRef}
+            className='space-y-6 contextual-targeting min-w-[90%] sm:min-w-[606px] ml-[10%] mr-6 font-bricolage'
+          >
             <h2 className='text-[#252525] text-[46px] sm:text-[56px] md:text-[64px] font-bold leading-[68px]'>
               Contextual targeting in{" "}
               <span className='text-muted-foreground text-[#a0a0a0] lowercase'>
