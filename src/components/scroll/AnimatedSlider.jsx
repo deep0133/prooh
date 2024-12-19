@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
-import "./Slider.css"; // Add styles for your slider
+import "./Slider.css";
 
 const AnimatedSlider = () => {
   const sliderRef = useRef(null);
@@ -8,16 +8,16 @@ const AnimatedSlider = () => {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      const tl = gsap.timeline({ repeat: -1 }); // Infinite loop
+      const tl = gsap.timeline({ repeat: -1 });
       tl.to(slidesRef.current, {
-        xPercent: -100 * (slidesRef.current.length - 1), // Move through all slides
-        ease: "Power2.easeInOut", // Smooth easing
-        duration: 10, // Duration for the full animation
+        xPercent: -100 * (slidesRef.current.length - 1),
+        ease: "Power2.easeInOut",
+        duration: 10,
         stagger: 0,
       });
     }, sliderRef);
 
-    return () => ctx.revert(); // Clean up on unmount
+    return () => ctx.revert();
   }, []);
 
   return (

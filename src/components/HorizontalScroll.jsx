@@ -115,7 +115,7 @@ export default function HorizontalScrollCards() {
       stagger: 0.2,
       ease: "power2.out",
       scrollTrigger: {
-        trigger: ".social-link",
+        trigger: ".contextual-targeting",
         start: "top 70%",
         toggleActions: "play none none reset",
       },
@@ -226,11 +226,12 @@ function Card({ title, description, bgColor }) {
           </div>
         </div>
       </div>
-      <img
-        src={bagIcon}
-        className='absolute size-[84px] left-8 -top-10 z-50'
+      <div
+        className={`absolute flex justify-center items-center rounded-full size-[84px] left-8 -top-10 z-50 ${bgColor} border-4 border-white`}
         alt=''
-      />
+      >
+        <img src={bagIcon} alt='' />
+      </div>
     </div>
   );
 }

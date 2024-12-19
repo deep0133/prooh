@@ -63,7 +63,7 @@ export default function AudienceMeasurement() {
 
   return (
     <section className='relative bg-white z-20 flex justify-center items-center min-h-svh'>
-      <div ref={containerRef} className='responsiveWidth '>
+      <div ref={containerRef} className='responsiveWidth'>
         <div className='heading-container responsiveWidth mx-auto text-center mb-16'>
           <h1 className='text-4xl md:text-5xl text-[#232323] font-bold mb-4 leading-[51px] font-bricolage'>
             Audience Measurement

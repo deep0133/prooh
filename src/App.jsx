@@ -15,6 +15,7 @@ import LogoMarquee from "./components/LogoMarquee";
 import ReadyToStand from "./components/ReadyToStand";
 import ScrollScaleCard from "./components/scroll/ScrollScaleCard";
 import Testimonial from "./components/Testimonial";
+import ScrollAnimation from "./components/scroll/ScrollAnimation";
 gsap.registerPlugin(ScrollTrigger, TextPlugin);
 export default function App() {
   const cursorRef = useRef(null);
@@ -64,13 +65,11 @@ export default function App() {
     <div className='w-full overflow-y-auto overflow-x-hidden'>
       <Header />
       <Hero />
-
       <Compaign />
-      <LogoMarquee />
+
       <ScrollScaleCard />
       <AudienceMeasurement />
-      {/* <AnimatedSearch /> */}
-      {/* <ChooseUs /> */}
+      <ScrollAnimation />
       <HorizontalScroll />
       <Testimonial />
       <FriendlyTeam />

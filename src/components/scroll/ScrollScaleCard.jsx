@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { Search, BarChart2, HelpCircle, Activity } from "lucide-react";
+import LogoMarquee from "../LogoMarquee";
 
 export default function ScrollScaleCard() {
   const cardRef = useRef(null);
@@ -10,16 +11,15 @@ export default function ScrollScaleCard() {
     const card = cardRef.current;
     if (!card) return;
 
-    // Initialize scroll-based animation
     const animation = gsap.to(card, {
-      scale: 1.5, // Maximum scale when scrolling up
+      scale: 1.5,
       duration: 1,
       ease: "power3.out",
       scrollTrigger: {
         trigger: containerRef.current,
         start: "top 60%",
         end: "bottom 40%",
-        scrub: 0.5, // Smooth animation that follows scroll
+        scrub: 0.5,
         toggleActions: "play none none reverse",
       },
     });
@@ -36,6 +36,7 @@ export default function ScrollScaleCard() {
       data-color='white'
       className='min-h-svh h-auto z-20 bg-white  w-auto mx-[8px] relative'
     >
+      <LogoMarquee />
       {/* Hero Section */}
       <div className='relative rounded-b-[24px] bg-black text-white h-full pb-20 flex flex-col items-center justify-center px-4'>
         <h1 className='text-center mb-16'>
