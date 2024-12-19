@@ -40,29 +40,46 @@ function FriendlyTeam() {
       isLight: true,
     },
   ];
+
+  const textRefTeam = useRef(null);
   useGSAP(() => {
     const cards = friendlyTeamRef.current.querySelectorAll(".card");
 
     gsap.fromTo(
       cards,
       {
-        x: 500, // Start 100px to the right
-        opacity: 0, // Start with 0 opacity
+        x: 500,
+        opacity: 0,
       },
       {
-        x: 0, // End at original position
-        opacity: 1, // End fully visible
-        duration: 0.8, // Animation duration
-        ease: "bounce.out", // Bounce effect
-        stagger: 0.2, // Delay between each card
+        x: 0,
+        opacity: 1,
+        duration: 0.8,
+        ease: "bounce.out",
+        stagger: 0.2,
         scrollTrigger: {
-          trigger: friendlyTeamRef.current, // Animate on scroll into view
-          start: "top 40%", // When top of container is at 80% of viewport
-          end: "bottom 20%", // When bottom of container is at 20% of viewport
-          toggleActions: "play none none reverse", // Play animation on enter
+          trigger: friendlyTeamRef.current,
+          start: "top 40%",
+          end: "bottom 20%",
+          toggleActions: "play none none reverse",
         },
       }
     );
+
+    gsap.from(textRefTeam.current.children, {
+      y: 100,
+      opacity: 0,
+      duration: 0.8,
+      stagger: 0.2,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: textRefTeam.current,
+        start: "top 90%",
+        end: "bottom 60%",
+        scrub: true,
+        toggleActions: "play none none reverse",
+      },
+    });
   }, []);
 
   const friendlyTeamRef = useRef(null);
@@ -84,7 +101,10 @@ function FriendlyTeam() {
           }}
           className='relative text-white flex flex-col bg-black pb-3 justify-center gap-6'
         >
-          <div className='text-white responsiveWidth flex flex-col text-center gap-1 '>
+          <div
+            ref={textRefTeam}
+            className='text-white responsiveWidth flex flex-col text-center gap-1 '
+          >
             <div className='text-center justify-center flex'>
               <img src={logo} alt='' className='h-[26px]' />
             </div>
@@ -122,65 +142,22 @@ function FriendlyTeam() {
 
 export default FriendlyTeam;
 
-// function Card({ icon, title, desc, buttonText, index, email }) {
-//   return (
-//     <div
-//       className={`${
-//         index === 3 ? "bg-white text-black" : "bg-[#2A2A2A]"
-//       } flex flex-col py-8 px-6 rounded-[23px] card`}
-//     >
-//       <div className='p-2'>
-//         <div className=' flex flex-col gap-3 md:px-2'>
-//           <div className='mb-3'>
-//             <img src={icon} alt='' className='size-[23px]' />
-//           </div>
-//           <span
-//             className={`${
-//               index === 3 ? "text-black bg-inherit" : "text-white bg-inherit"
-//             } text-2xl font-bold font-inter`}
-//           >
-//             {title}
-//           </span>
-//           <span
-//             className={` ${
-//               index === 3 ? "text-black bg-inherit" : "text-white bg-inherit"
-//             } text-[15px] font-normal font-inter`}
-//           >
-//             {desc}
-//             <br />
-//             <span className='font-medium'> {email}</span>
-//           </span>
-//         </div>
-
-//         <a
-//           href={`mailto:${email}`}
-//           className={`h-[42px] mt-7 w-full ${
-//             index === 3 ? "bg-black text-white" : "bg-[#2A2A2A] text-white"
-//           } py-3 rounded-[36px] border border-[#464646] text-[15px] text-nowrap font-bold font-inter capitalize justify-center items-center gap-2.5 inline-flex`}
-//         >
-//           {buttonText}
-//         </a>
-//       </div>
-//     </div>
-//   );
-// }
-
 function Card({ icon, title, desc, buttonText, email }) {
   const cardRef = useRef(null);
 
   const handleMouseEnter = () => {
     gsap.to(cardRef.current, {
-      backgroundColor: "white", // Hover background color
-      color: "#2A2A2A", // Text color on hover
-      duration: 0.3, // Animation duration
+      backgroundColor: "white",
+      color: "#2A2A2A",
+      duration: 0.3,
     });
   };
 
   const handleMouseLeave = () => {
     gsap.to(cardRef.current, {
-      backgroundColor: "#2A2A2A", // Original background color for all cards
-      color: "white", // Original text color
-      duration: 0.3, // Animation duration
+      backgroundColor: "#2A2A2A",
+      color: "white",
+      duration: 0.3,
     });
   };
 
@@ -189,7 +166,7 @@ function Card({ icon, title, desc, buttonText, email }) {
       ref={cardRef}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      className='flex flex-col py-8 px-6 bg-[#2A2A2A] rounded-[23px] group card' // Default background for all cards
+      className='flex flex-col py-8 px-6 bg-[#2A2A2A] rounded-[23px] group card'
     >
       <div className='p-2'>
         <div className='flex flex-col gap-3 md:px-2'>

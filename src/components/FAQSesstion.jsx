@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import smileIcon from "../assets/emoji.png";
 import { X } from "lucide-react";
+import { useGSAP } from "@gsap/react";
 const faqData = [
   {
     id: 1,
@@ -37,15 +38,32 @@ export default function AnimatedFAQ() {
   const contentRef = useRef([]);
   const containerRef = useRef(null);
 
+  const textRefFaq = useRef(null);
+
   useEffect(() => {
-    // Initialize GSAP context
     const ctx = gsap.context(() => {}, containerRef);
     return () => ctx.revert();
   }, []);
 
+  useGSAP(() => {
+    gsap.from(textRefFaq.current.children, {
+      y: 100,
+      opacity: 0,
+      duration: 0.8,
+      stagger: 0.2,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: textRefFaq.current,
+        start: "top 90%",
+        end: "bottom 60%",
+        scrub: true,
+        toggleActions: "play none none reverse",
+      },
+    });
+  }, []);
+
   const handleClick = (id) => {
     if (activeId === id) {
-      // Close current item
       gsap.to(contentRef.current[id - 1], {
         height: 0,
         opacity: 0,
@@ -60,14 +78,13 @@ export default function AnimatedFAQ() {
       });
       setActiveId(null);
     } else {
-      // Hide clicked question
       gsap.to(questionsRef.current[id - 1], {
         opacity: 0,
         y: -20,
         duration: 0.5,
         ease: "power2.out",
       });
-      // Close previous content if any
+
       if (activeId) {
         gsap.to(contentRef.current[activeId - 1], {
           height: 0,
@@ -82,7 +99,7 @@ export default function AnimatedFAQ() {
           ease: "power2.out",
         });
       }
-      // Open new content
+
       gsap.to(contentRef.current[id - 1], {
         height: "auto",
         opacity: 1,
@@ -111,7 +128,7 @@ export default function AnimatedFAQ() {
         className='bg-black text-white -mt-1 flex-col p-8 flex justify-center items-center'
       >
         <div className='responsiveWidth mx-auto grid md:grid-cols-2 place-items-center gap-5'>
-          <div>
+          <div ref={textRefFaq}>
             <div className='flex items-center gap-2'>
               <span>
                 <img src={smileIcon} className='w-6 h-6' />

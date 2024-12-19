@@ -119,7 +119,7 @@ export default function Header() {
         ref={headerRef}
         className={`h-20 flex top-0 w-full bg-black text-white z-50 items-center transition-all duration-300`}
       >
-        <div className='responsiveWidth flex justify-between items-center w-full px-4 sm:px-6 lg:px-8'>
+        <div className='responsiveWidth  flex justify-between items-center w-full px-4 sm:px-6 lg:px-8'>
           <h1 className='text-xl font-bold'>PROOH.AI</h1>
 
           {/* Hamburger Menu for Mobile */}

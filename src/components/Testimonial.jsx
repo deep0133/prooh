@@ -66,6 +66,7 @@ const TestimonialSlider = () => {
   const [activeTestimonial, setActiveTestimonial] = useState(testimonials[0]);
   const [activeIndex, setActiveIndex] = useState(0);
   const textRef = useRef(null);
+  const textRefTestimonial = useRef(null);
   useGSAP(() => {
     const textElement = textRef.current;
     const text = activeTestimonial.message;
@@ -89,6 +90,22 @@ const TestimonialSlider = () => {
       stagger: 0.03, // Delay between each character animation
     });
   }, [activeTestimonial]);
+
+  useGSAP(() => {
+    gsap.from(textRefTestimonial.current.children, {
+      y: 100,
+      opacity: 0,
+      duration: 0.8,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: textRefTestimonial.current,
+        start: "top 90%",
+        end: "bottom 60%",
+        scrub: true,
+        toggleActions: "play none none reverse",
+      },
+    });
+  }, []);
   const handleSlideChange = (swiper) => {
     setActiveTestimonial(testimonials[swiper.realIndex]);
   };
@@ -104,7 +121,7 @@ const TestimonialSlider = () => {
         data-color='black'
         className='responsiveWidth relative z-20 bg-white'
       >
-        <center>
+        <center ref={textRefTestimonial}>
           <div className='flex gap-5 justify-center items-baseline'>
             <img src={imojiIcon} alt='' className='' />
             <p className='text-center text-[#8b8b8b] text-xl sm:text-2xl font-normal capitalize leading-[64px]'>

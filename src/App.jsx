@@ -2,9 +2,9 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import TextPlugin from "gsap/TextPlugin";
 import { useEffect, useRef } from "react";
-import Compaign from "./components/Campaign";
 import { AnimatedFooter } from "./components/AnimatedFooter";
 import AudienceMeasurement from "./components/AudienceMeasurement";
+import Compaign from "./components/Campaign";
 import FAQSection from "./components/FAQSesstion";
 import FriendlyTeam from "./components/FriendlyTeam";
 import Header from "./components/Header";
@@ -58,6 +58,7 @@ export default function App() {
       window.removeEventListener("touchmove", handleTouchMove);
     };
   }, []);
+
   return (
     <div className='w-full overflow-y-auto overflow-x-hidden'>
       <Header />

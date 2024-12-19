@@ -7,6 +7,9 @@ export default function AudienceMeasurement() {
   const containerRef = useRef(null);
   const cardsRef = useRef([]);
 
+  const textRefAudience = useRef(null);
+  const textRefAudience2 = useRef(null);
+
   useGSAP(() => {
     // Animate heading
     gsap.from(".heading-container", {
@@ -23,6 +26,40 @@ export default function AudienceMeasurement() {
       duration: 0.8,
       stagger: 0.2,
       ease: "power3.out",
+      scrollTrigger: {
+        trigger: cardsRef.current,
+        start: "top 90%",
+        end: "bottom 60%",
+        scrub: true,
+        toggleActions: "play none none reverse",
+      },
+    });
+
+    gsap.from(textRefAudience.current, {
+      y: 100,
+      opacity: 0,
+      duration: 0.8,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: textRefAudience.current,
+        start: "top 90%",
+        end: "bottom 60%",
+        scrub: true,
+        toggleActions: "play none none reverse",
+      },
+    });
+    gsap.from(textRefAudience2.current, {
+      y: 100,
+      opacity: 0,
+      duration: 0.8,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: textRefAudience2.current,
+        start: "top 90%",
+        end: "bottom 60%",
+        scrub: true,
+        toggleActions: "play none none reverse",
+      },
     });
   }, []);
 
@@ -65,7 +102,10 @@ export default function AudienceMeasurement() {
     <section className='relative bg-white z-20 flex justify-center items-center min-h-svh'>
       <div ref={containerRef} className='responsiveWidth'>
         <div className='heading-container responsiveWidth mx-auto text-center mb-16'>
-          <h1 className='text-4xl md:text-5xl text-[#232323] font-bold mb-4 leading-[51px] font-bricolage'>
+          <h1
+            ref={textRefAudience}
+            className='text-4xl md:text-5xl text-[#232323] font-bold mb-4 leading-[51px] font-bricolage'
+          >
             Audience Measurement
             <br />
             Through <span className='text-[#bababa]'>iot Device</span>
@@ -75,7 +115,7 @@ export default function AudienceMeasurement() {
             Harness the power of data-driven campaigns to create meaningful
             connections with your audience, leaving
           </p> */}
-          <p>
+          <p ref={textRefAudience2}>
             <span className="text-[#605d5d] text-base font-normal font-['Inter'] leading-loose">
               Harness the power of data-driven campaig
             </span>

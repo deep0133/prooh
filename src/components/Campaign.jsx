@@ -24,7 +24,7 @@ export default function Compaign() {
         ],
         {
           opacity: 0,
-          y: 20,
+          y: 70,
         }
       );
 
@@ -43,10 +43,10 @@ export default function Compaign() {
         defaults: { ease: "power3.out" },
         scrollTrigger: {
           trigger: containerRef.current,
-          start: "top 80%",
+          start: "top 50%",
           end: "bottom 60%",
           scrub: true,
-          once: true,
+          toggleActions: "play none none reverse",
         },
       });
 

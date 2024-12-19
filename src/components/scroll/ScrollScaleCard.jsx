@@ -1,13 +1,18 @@
-import { useEffect, useRef } from "react";
+import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
-import { Search, BarChart2, HelpCircle, Activity } from "lucide-react";
+import { Activity, BarChart2, HelpCircle, Search } from "lucide-react";
+import { useRef } from "react";
 import LogoMarquee from "../LogoMarquee";
 
 export default function ScrollScaleCard() {
   const cardRef = useRef(null);
   const containerRef = useRef(null);
 
-  useEffect(() => {
+  const textRefScrollCard = useRef(null);
+
+  const boxRef = useRef(null);
+
+  useGSAP(() => {
     const card = cardRef.current;
     if (!card) return;
 
@@ -20,6 +25,33 @@ export default function ScrollScaleCard() {
         start: "top 60%",
         end: "bottom 40%",
         scrub: 0.5,
+        toggleActions: "play none none reverse",
+      },
+    });
+
+    gsap.from(textRefScrollCard.current, {
+      y: 100,
+      opacity: 0,
+      duration: 0.8,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: textRefScrollCard.current,
+        start: "top 90%",
+        end: "bottom 60%",
+        scrub: true,
+        toggleActions: "play none none reverse",
+      },
+    });
+    gsap.from(boxRef.current.children, {
+      x: 100,
+      opacity: 0,
+      duration: 0.8,
+      ease: "bounce.out",
+      scrollTrigger: {
+        trigger: boxRef.current,
+        start: "top 90%",
+        end: "bottom 60%",
+        scrub: true,
         toggleActions: "play none none reverse",
       },
     });
@@ -39,7 +71,7 @@ export default function ScrollScaleCard() {
       <LogoMarquee />
       {/* Hero Section */}
       <div className='relative bg-black text-white h-full pb-20 flex flex-col items-center justify-center px-4'>
-        <h1 className='text-center mb-16'>
+        <h1 ref={textRefScrollCard} className='text-center mb-16'>
           <span className='block text-5xl md:text-6xl font-light mb-4 font-bricolage'>
             <span className='text-gray-500'>AI-first</span> social media
           </span>
@@ -49,7 +81,10 @@ export default function ScrollScaleCard() {
         </h1>
 
         {/* Navigation Pills */}
-        <div className='flex items-center sm:flex-row flex-col font-inter  gap-2 p-1 bg-zinc-900 space-y-2 sm:rounded-full '>
+        <div
+          ref={boxRef}
+          className='flex items-center sm:flex-row flex-col font-inter  gap-2 p-1 bg-zinc-900 space-y-2 sm:rounded-full '
+        >
           <button className='flex items-center gap-2 px-6 py-2 bg-white text-black rounded-full'>
             <Search className='w-4 h-4' />
             Search
