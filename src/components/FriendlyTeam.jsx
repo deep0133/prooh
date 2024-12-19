@@ -76,13 +76,13 @@ function FriendlyTeam() {
         style={{
           minHeight: "calc(100vh - 12px)",
         }}
-        className='z-20  mx-[8px] w-auto pb-3  border bg-white relative flex flex-col justify-center gap-6'
+        className='z-20 w-auto bg-white relative flex flex-col justify-center gap-6'
       >
         <div
           style={{
             minHeight: "calc(100vh - 12px)",
           }}
-          className='relative text-white flex flex-col bg-black rounded-t-[24px] pb-3 rounded-b-[24px] justify-center gap-6'
+          className='relative text-white flex flex-col bg-black pb-3 justify-center gap-6'
         >
           <div className='text-white responsiveWidth flex flex-col text-center gap-1 '>
             <div className='text-center justify-center flex'>

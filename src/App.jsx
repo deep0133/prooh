@@ -3,7 +3,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import TextPlugin from "gsap/TextPlugin";
 import { useEffect, useRef } from "react";
 import Compaign from "./components/Campaign";
-// import ChooseUs from "./components/ChooseUs";
 import { AnimatedFooter } from "./components/AnimatedFooter";
 import AudienceMeasurement from "./components/AudienceMeasurement";
 import FAQSection from "./components/FAQSesstion";
@@ -11,21 +10,19 @@ import FriendlyTeam from "./components/FriendlyTeam";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import HorizontalScroll from "./components/HorizontalScroll";
-import LogoMarquee from "./components/LogoMarquee";
 import ReadyToStand from "./components/ReadyToStand";
+import ScrollAnimation from "./components/scroll/ScrollAnimation";
 import ScrollScaleCard from "./components/scroll/ScrollScaleCard";
 import Testimonial from "./components/Testimonial";
-import ScrollAnimation from "./components/scroll/ScrollAnimation";
 gsap.registerPlugin(ScrollTrigger, TextPlugin);
 export default function App() {
   const cursorRef = useRef(null);
   useEffect(() => {
-    const isMobile = window.innerWidth <= 768; // Mobile width threshold
+    const isMobile = window.innerWidth <= 768;
 
-    // Hide cursor on mobile
     if (isMobile) {
       cursorRef.current.style.display = "none";
-      return; // Skip adding listeners for mobile
+      return;
     }
 
     const handleMouseMove = (e) => {
@@ -72,10 +69,14 @@ export default function App() {
       <ScrollAnimation />
       <HorizontalScroll />
       <Testimonial />
-      <FriendlyTeam />
-      <FAQSection />
-      <ReadyToStand />
-      <AnimatedFooter />
+      <div className='bg-white'>
+        <div className='bg-black overflow-hidden text-white'>
+          <FriendlyTeam />
+          <FAQSection />
+          <ReadyToStand />
+          <AnimatedFooter />
+        </div>
+      </div>
 
       <div
         ref={cursorRef}

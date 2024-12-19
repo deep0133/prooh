@@ -2,8 +2,8 @@ import { ArrowRight } from "lucide-react";
 
 export default function ReadyToStand() {
   return (
-    <div className='relative z-20 w-auto mx-[8px] pb-3 bg-white'>
-      <div className='bg-black rounded-t-[24px] rounded-b-[24px]  py-12 '>
+    <div className='relative z-20 w-auto bg-white'>
+      <div className='bg-black py-12 '>
         <div className='responsiveWidth  flex md:flex-row flex-col md:justify-between md:gap-0 gap-5 md:items-center bg-white py-5 min-h-[174px] px-[52px] rounded-[34px]'>
           <div className=''>
             <div>

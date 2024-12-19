@@ -101,14 +101,14 @@ export default function AnimatedFAQ() {
       style={{
         minHeight: "calc(100vh - 12px)",
       }}
-      className='z-20 relative bg-white py-3 px-2 '
+      className='z-20 relative bg-white'
       ref={containerRef}
     >
       <div
         style={{
           minHeight: "calc(100vh - 12px)",
         }}
-        className='bg-black text-white rounded-t-[24px] rounded-b-[24px] flex-col p-8 flex justify-center items-center'
+        className='bg-black text-white -mt-1 flex-col p-8 flex justify-center items-center'
       >
         <div className='responsiveWidth mx-auto grid md:grid-cols-2 place-items-center gap-5'>
           <div>

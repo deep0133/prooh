@@ -63,7 +63,7 @@ export default function Hero() {
       style={{
         minHeight: "calc(100vh - 16px)",
       }}
-      className='black-section mx-[8px] z-20 mt-3 w-auto flex items-center justify-center  relative rounded-t-[24px] rounded-b-[24px] bg-black text-white pt-16'
+      className='black-section z-20 mt-3 w-auto flex items-center justify-center  relative bg-black text-white pt-16'
     >
       {/* Custom Cursor */}
       <FallingIcons icons={icons} />

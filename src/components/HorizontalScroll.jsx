@@ -112,7 +112,7 @@ export default function HorizontalScrollCards() {
       y: 50,
       opacity: 0,
       duration: 0.8,
-      stagger: 0.2,
+      stagger: 0.4,
       ease: "power2.out",
       scrollTrigger: {
         trigger: ".contextual-targeting",
@@ -167,20 +167,20 @@ export default function HorizontalScrollCards() {
         >
           <div
             ref={contextualRef}
-            className='space-y-6 contextual-targeting min-w-[90%] sm:min-w-[606px] ml-[10%] mr-6 font-bricolage'
+            className='space-y-6  min-w-[90%] sm:min-w-[606px] ml-[10%] mr-6 font-bricolage'
           >
-            <h2 className='text-[#252525] text-[46px] sm:text-[56px] md:text-[64px] font-bold leading-[68px]'>
+            <h2 className='text-[#252525] contextual-targeting text-[46px] sm:text-[56px] md:text-[64px] font-bold leading-[68px]'>
               Contextual targeting in{" "}
               <span className='text-muted-foreground text-[#a0a0a0] lowercase'>
                 dooh & ooh
               </span>
             </h2>
-            <p className='text-[#8a8a8a] text-xl font-normal font-inter leading-[30px]'>
+            <p className='text-[#8a8a8a] contextual-targeting text-xl font-normal font-inter leading-[30px]'>
               We enable contextual targeting in DOOH and OOH, ensuring ads reach
               the right audience by aligning messaging with relevant events and
               locations.
             </p>
-            <button className='w-[151px] text-nowrap h-[61px] px-[58px] text-black text-xl font-semibold font-inter capitalize py-5 rounded-[54px] border-2 border-[#c9c9c9] justify-center items-center gap-2.5 inline-flex'>
+            <button className='w-[151px] contextual-targeting text-nowrap h-[61px] px-[58px] text-black text-xl font-semibold font-inter capitalize py-5 rounded-[54px] border-2 border-[#c9c9c9] justify-center items-center gap-2.5 inline-flex'>
               plan now
             </button>
           </div>
