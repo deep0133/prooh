@@ -67,7 +67,7 @@ export default function App() {
 
       <ScrollScaleCard />
       <AudienceMeasurement />
-      <ScrollAnimation />
+      {/* <ScrollAnimation /> */}
       <HorizontalScroll />
       <Testimonial />
       <div className='bg-white'>
